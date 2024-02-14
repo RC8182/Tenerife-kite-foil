@@ -1,19 +1,20 @@
+import { Slaider } from '@/components/carrucel/slaider';
 import Webcam from '@/components/webcam/webcam';
 import React from 'react';
 
 export default function Webcampage() {
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center">
+    <div className="m-4 bg-gray-100 min-h-screen flex justify-center">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">El Médano Web Cam</h1>
+        <h1 className="text-4xl font-bold mb-4 text-[rgb(0,59,112)]" >El Médano Web Cam</h1>
 
-        <div className="mb-4">
-          <Webcam width={'600px'} height={'300px'} />
+        <div className="m-4 flex justify-center">
+          <Webcam className="w-[600px] h-[300px] sm:w-[300px] sm:h-[150px]" />
         </div>
 
-        <div>
-          {/* Agrega tu carrusel de ofertas aquí utilizando Tailwind CSS */}
-          {/* Puedes usar librerías como slick-carousel o swiper para el carrusel */}
+
+        <div className='flex justify-center'>
+          <Slaider />
         </div>
       </div>
     </div>
