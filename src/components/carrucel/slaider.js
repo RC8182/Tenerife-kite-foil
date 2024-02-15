@@ -2,8 +2,7 @@ import { datos } from './db'
 import ProgressSlider from './progress-slider'
 
 
-export const Slaider = () => {
-    const idioma= 'es'
+export const Slaider = ({idioma}) => {
     const datosSlider =( idioma==='es') ? datos?.es : datos?.en;
     const titulo= datosSlider.slaider.titulo;
     //const sub1= datosSlider.slaider.subtitulo;

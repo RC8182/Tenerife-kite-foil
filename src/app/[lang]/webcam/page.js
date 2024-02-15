@@ -2,7 +2,9 @@ import { Slaider } from '@/components/carrucel/slaider';
 import Webcam from '@/components/webcam/webcam';
 import React from 'react';
 
-export default function Webcampage() {
+export default function Webcampage({params}) {
+  const idioma= params.lang;
+
   return (
     <div className="m-4 bg-gray-100 min-h-screen flex justify-center">
       <div className="text-center">
@@ -14,7 +16,7 @@ export default function Webcampage() {
 
 
         <div className='flex justify-center'>
-          <Slaider />
+          <Slaider idioma={idioma} />
         </div>
       </div>
     </div>

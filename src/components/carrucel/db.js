@@ -12,44 +12,38 @@ export const datos = {
       "items":[
         {
           img: SilderImg01,
-          desc:'oferta 1'
+          desc:'Lacuna 9 M'
         },
         {
           img: SilderImg02,
-          desc:'oferta 2'
+          desc:'Eleveight 4M'
         },
         {
           img: SilderImg03,
-          desc:'oferta 3'
+          desc:'Lacuna 9 M'
         },
-        {
-          img: SilderImg01,
-          desc:'oferta 1'
-        },
+
       ],
     }
   },
   "en": {
     "slaider": {
-      "titulo": "Gallery",
+      "titulo": "Ours offerts",
       "subtitulo": "",
       "items":[
         {
           img: SilderImg01,
-          desc:'boy playing tennis'
+          desc:'Lacuna 9 M'
         },
         {
           img: SilderImg02,
-          desc:'tennis court'
+          desc:'Eleveight 4M'
         },
         {
           img: SilderImg03,
-          desc:'children playing tennis'
+          desc:'Lacuna 9 M'
         },
-        {
-          img: SilderImg01,
-          desc:'tennis rackets on court'
-        },
+
       ],
     }
   }
