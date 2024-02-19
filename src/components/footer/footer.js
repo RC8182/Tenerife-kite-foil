@@ -55,7 +55,7 @@ export default function Footer ({idioma}) {
                     </Link>
                 </div>
 
-                <p>{datosFooter.footer.rights}</p>
+                <p className='p-2'>{datosFooter.footer.rights}</p>
             </div>
         </div>
       );

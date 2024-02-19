@@ -4,7 +4,7 @@ import wing from '/public/fotos/portada/wing.jpg';
 import Link from 'next/link';
 import { Slaider } from '@/components/carrucel/slaider';
 
-export const data = {
+const data = {
   "es": {
     "kiteUrl":"https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/cometas-kitesurf-market/todas-las-cometas/",
     "wingUrl":"https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/tablas-wing-foil/todos-los-wingfoil/",

@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+
+  arena:
+    image: rc8182/docker-repo:tenerife-kite-foil
+    container_name: tenerife-kite-foil
+    restart: unless-stopped
+    ports:
+      - 3005:3000
+
+    expose:
+      - 3005
+    networks:
+      - web-server_net
+
+networks:
+  web-server_net:
+    external: true
