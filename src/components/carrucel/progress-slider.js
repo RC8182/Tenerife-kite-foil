@@ -38,7 +38,7 @@ export default function ProgressSlider({ items}) {
       {/* Item image */}
       <div className="transition-all duration-150 delay-300 ease-in-out">
         <div className="relative flex flex-col" ref={itemsRef}>
-          {items.map((e, index) => (
+          {items && items.map((e, index) => (
             <div
               key={index}
               className={`${
@@ -56,7 +56,7 @@ export default function ProgressSlider({ items}) {
       </div>
       {/* Buttons */}
       <div className="max-w-xs sm:max-w-sm md:max-w-3xl mx-auto grid grid-cols-4 md:grid-cols-4 gap-4 mt-8">
-        {items.map((item, index) => (
+        {items && items.map((item, index) => (
           <button
             key={index}
             className="p-2 rounded focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 group"

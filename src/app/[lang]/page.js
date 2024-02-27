@@ -3,7 +3,14 @@ import kite from '/public/fotos/portada/kite.jpg';
 import wing from '/public/fotos/portada/wing.jpg';
 import Link from 'next/link';
 import { Slaider } from '@/components/carrucel/slaider';
-import datos from '../../components/navbar/db';
+import { dbNuevaTemp } from './db-nuevatemp';
+import { dbOfertas } from './db-ofertas';
+import ContenedorProductos from '@/components/productos/contenedorProducto';
+import { productos } from './db-productos';
+
+
+
+
 
 const data = {
   "es": {
@@ -51,7 +58,8 @@ export default function Home({params}) {
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
-      {/* <ContenedorWebcam/> */}
+      <Slaider idioma={idioma} db={dbNuevaTemp} />
+      <ContenedorProductos idioma={idioma} productos={productos}/>
       <section className="h-screen flex md:flex-row">
         <Link href={lang.kiteUrl} target="_blank" passHref className="w-full md:w-1/2 bg-cover bg-center hover:filter hover:grayscale transition-all duration-500 flex items-center justify-center" style={{backgroundImage: `url(${kite.src})`}}>
         <h1 className="text-white text-center text-7xl hover:text-8xl transition-all duration-500">Kite</h1>
@@ -69,7 +77,8 @@ export default function Home({params}) {
         <p>{lang.welcome.p3}</p>
       </section>
       <section className='flex justify-center'>
-        <Slaider idioma={idioma} datos={datos}/>
+      <Slaider idioma={idioma} db={dbOfertas} mwith={'xs'}/>
+
       </section>
 
     </div>

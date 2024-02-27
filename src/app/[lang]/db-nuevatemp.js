@@ -1,13 +1,13 @@
-import SilderImg01 from '../../../public/fotos/carrucel/1.png'
-import SilderImg02 from '../../../public/fotos/carrucel/2.png'
-import SilderImg03 from '../../../public/fotos/carrucel/3.png'
+import SilderImg01 from '/public/fotos/portada/kite.jpg'
+import SilderImg02 from '/public/fotos/portada/wing.jpg'
+import SilderImg03 from '/public/fotos/carrucel/3.png'
 
 
 
-export const datos = {
+export const dbNuevaTemp = {
   "es": {
     "slaider": {
-      "titulo": "Nuestras ofertas",
+      "titulo": "",
       "subtitulo": "",
       "items":[
         {
@@ -18,10 +18,10 @@ export const datos = {
           img: SilderImg02,
           desc:'Eleveight 4M'
         },
-        {
-          img: SilderImg03,
-          desc:'Lacuna 9 M'
-        },
+        // {
+        //   img: SilderImg03,
+        //   desc:'Lacuna 9 M'
+        // },
 
       ],
     }
