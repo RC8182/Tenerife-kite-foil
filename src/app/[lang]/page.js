@@ -3,6 +3,7 @@ import kite from '/public/fotos/portada/kite.jpg';
 import wing from '/public/fotos/portada/wing.jpg';
 import Link from 'next/link';
 import { Slaider } from '@/components/carrucel/slaider';
+import datos from '../../components/navbar/db';
 
 const data = {
   "es": {
@@ -26,16 +27,31 @@ const data = {
     }
   }
 };
-
+export const metadata = {
+  en: {
+    title: 'Tenerife Kite Foil - Your Destination for Kitesurfing and Wing Foiling',
+    description: 'Explore kitesurfing and wing foiling courses in Tenerife. Find top-quality kitesurfing and wing foil equipment, including kites, boards, accessories, and more. Discover our outlet for discounted items, used gear, and rental options.',
+    keywords: 'Kitesurfing Tenerife, Kitesurf Courses Tenerife, Wing Foil Tenerife, Wing Foil Courses Tenerife, Kitesurf and Wing Foil Gear Tenerife, Kites, Boards, Accessories Tenerife, Outlet Tenerife, Used Gear Tenerife, Rental Equipment Tenerife',
+  },
+  es: {
+    title: 'Tenerife Kite Foil - Tu destino para Kitesurf y Wing Foil',
+    description: 'Explora cursos de kitesurf y wing foil en Tenerife. Encuentra equipos de kitesurf y wing foil de alta calidad, incluyendo cometas, tablas, accesorios y más. Descubre nuestro outlet con artículos con descuento, equipo usado y opciones de alquiler.',
+    keywords: 'Kitesurf en Tenerife, Cursos de Kitesurf en Tenerife, Wing Foil en Tenerife, Cursos de Wing Foil en Tenerife, Material de Kitesurf y Wing Foil en Tenerife, Cometas, Tablas, Accesorios en Tenerife, Outlet en Tenerife, Material Usado en Tenerife, Alquiler de Material en Tenerife',
+  },
+};
 
 
 export default function Home({params}) {
   const idioma= params.lang;
+  const currentMetadata = metadata[idioma];
   const lang=(idioma==='es')? data.es : data.en;
-
   return (
     <div>
-      <Navbar webcam={true} idioma={idioma}/>
+      <title>{currentMetadata?.title}</title>
+      <meta name="description" content={currentMetadata?.description} />
+      <meta name="keywords" content={currentMetadata?.keywords} />
+      <Navbar idioma={idioma} />
+      {/* <ContenedorWebcam/> */}
       <section className="h-screen flex md:flex-row">
         <Link href={lang.kiteUrl} target="_blank" passHref className="w-full md:w-1/2 bg-cover bg-center hover:filter hover:grayscale transition-all duration-500 flex items-center justify-center" style={{backgroundImage: `url(${kite.src})`}}>
         <h1 className="text-white text-center text-7xl hover:text-8xl transition-all duration-500">Kite</h1>
@@ -53,7 +69,7 @@ export default function Home({params}) {
         <p>{lang.welcome.p3}</p>
       </section>
       <section className='flex justify-center'>
-        <Slaider idioma={idioma}/>
+        <Slaider idioma={idioma} datos={datos}/>
       </section>
 
     </div>
