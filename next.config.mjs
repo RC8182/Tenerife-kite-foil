@@ -1,8 +1,7 @@
-const nextConfig = {
-    images: {
-      domains: ['azul-kite.ddns.net'],
-    },
-  }
-  
-  export default nextConfig;
-  
+export default {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'azul-kite.ddns.net' },
+    ],
+  },
+};

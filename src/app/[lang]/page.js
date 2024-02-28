@@ -1,12 +1,11 @@
 import Navbar from '@/components/navbar/navbar';
-import kite from '/public/fotos/portada/kite.jpg';
-import wing from '/public/fotos/portada/wing.jpg';
-import Link from 'next/link';
 import { Slaider } from '@/components/carrucel/slaider';
-import { dbNuevaTemp } from './db-nuevatemp';
+import { todos_productos } from './db-todosProductos';
 import { dbOfertas } from './db-ofertas';
 import ContenedorProductos from '@/components/productos/contenedorProducto';
-import { productos } from './db-productos';
+import { nueva_temporada } from './db-nueva-temporada';
+import Imagen from '../../../public/fotos/portada/kite.jpg'
+
 
 
 
@@ -58,9 +57,23 @@ export default function Home({params}) {
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
-      <Slaider idioma={idioma} db={dbNuevaTemp} />
-      <ContenedorProductos idioma={idioma} productos={productos}/>
-      <section className="h-screen flex md:flex-row">
+      {/* <Slaider idioma={idioma} db={dbNuevaTemp} /> */}
+      <div className="bg-cover bg-center h-screen flex items-center justify-center" style={{backgroundImage: `url(${Imagen.src})`}}>
+      <h1 className="text-4xl md:text-5xl lg:text-7xl text-white font-semibold absolute bottom-0 left-0 mb-4 mr-4">
+        <span className="block mb-2 md:mb-4">KITESURF &</span>
+        <span>WINGFOIL SHOP</span>
+      </h1>
+
+      </div>
+
+      <section>
+        <ContenedorProductos idioma={idioma} productos={nueva_temporada}/>
+      </section>
+      <section>
+        <ContenedorProductos idioma={idioma} productos={todos_productos}/>
+      </section>
+      
+      {/* <section className="h-screen flex md:flex-row">
         <Link href={lang.kiteUrl} target="_blank" passHref className="w-full md:w-1/2 bg-cover bg-center hover:filter hover:grayscale transition-all duration-500 flex items-center justify-center" style={{backgroundImage: `url(${kite.src})`}}>
         <h1 className="text-white text-center text-7xl hover:text-8xl transition-all duration-500">Kite</h1>
         </Link>
@@ -75,7 +88,7 @@ export default function Home({params}) {
         <p className="mb-4">{lang.welcome.p2}</p>
 
         <p>{lang.welcome.p3}</p>
-      </section>
+      </section> */}
       <section className='flex justify-center'>
       <Slaider idioma={idioma} db={dbOfertas} mwith={'xs'}/>
 
