@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import tenerife from '/public/logo/logo-negro.png'
+import tenerife from '/public/logo/logo-blanco.png'
 import Image from 'next/image'
 
 export default function Logo(){

@@ -1,9 +1,9 @@
-import kite from '../../../public/fotos/nuevaTemporada/kite.png'
-import wings from '../../../public/fotos/nuevaTemporada/wings.png'
-import tablas from '../../../public/fotos/nuevaTemporada/tablas.png'
-import pad from '../../../public/fotos/nuevaTemporada/pad.png'
-import test from '../../../public/fotos/nuevaTemporada/test.png'
-import outlet from '../../../public/fotos/nuevaTemporada/outlet.png'
+import kite from '/public/fotos/nuevaTemporada/kite.png'
+import wings from '/public/fotos/nuevaTemporada/wings.png'
+import tablas from '/public/fotos/nuevaTemporada/tablas.png'
+import pad from '/public/fotos/nuevaTemporada/pad.png'
+import test from '/public/fotos/nuevaTemporada/test.png'
+import outlet from '/public/fotos/nuevaTemporada/outlet.png'
 export const todos_productos = {
 
     es: {
@@ -13,35 +13,37 @@ export const todos_productos = {
           title: 'Cometas',
           src: kite,
           url: '',
-          alt:'',
+          alt:'Imagen de una cometa de kitesurf',
         },
         {
           title: 'Wings',
           src: wings,
           url: '',
-          alt:'',
+          alt:'Imagen de un ala de Wing Foil',
         },
         {
           title: 'Tablas',
           src: tablas,
           url: '',
-          alt:'',
+          alt:'Imagen de una tabla de kitesurf',
         },
         {
           title: 'Accesorios',
           src: pad,
           url: '',
-          alt:'',
+          alt:'Imagen de un pad para tabla de kitesurf',
         },
         {
           title: 'Outlet',
           src: outlet,
-          url: ''
+          url:'',
+          alt: 'Imagen de una cometa de kitesurf'
         },
         {
           title: 'Usado',
           src: test,
-          url: ''
+          url:'',
+          alt: 'Imagen de una barra de kitesurf'
         },
       ]
     },
@@ -51,33 +53,38 @@ export const todos_productos = {
       productos: [
         {
           title: 'Kites',
-          src: '',
+          src: kite,
           url: '',
-          alt:'',
+          alt:'Image of a kitesurfing kite',
+        },        {
+          title: 'Wings',
+          src: wings,
+          url: '',
+          alt:'Image of a Wing Foil wing',
         },
         {
           title: 'Boards',
-          src: '',
+          src: tablas,
           url: '',
-          alt:'',
+          alt:'Image of a kitesurfing board',
         },
         {
           title: 'Accessories',
-          src: '',
+          src: pad,
           url: '',
-          alt:'',
+          alt:'Image of a pad for a kitesurfing board',
         },
         {
           title: 'Outlet',
-          src: '',
+          src: outlet,
           url: '',
-          alt:'',
+          alt:'Image of a kitesurfing kite',
         },
         {
           title: 'Tested',
-          src: '',
+          src: test,
           url: '',
-          alt:'',
+          alt:'Image of a kitesurfing bar',
         },
       ]
     }
