@@ -10,6 +10,7 @@ RUN chown -R node:node /app && \
 
 USER node
 RUN npm install && \
+    # npm install react-query && \
     npm install sharp && \
     npm rebuild --arch=x64 --platform=linux --libc=musl sharp && \
     npm i @formatjs/intl-localematcher &&\
