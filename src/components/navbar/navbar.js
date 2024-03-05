@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { datos } from "./db";
 import { DropdownButton } from "./dropdownButton";
 const ContenedorWebcam= dynamic(()=> import ("../webcam/contenedorWebcam"));
@@ -22,7 +22,7 @@ export default function Navbar ({idioma}) {
     <div className="text-black bg-blue-500" onMouseLeave={()=>{setOpenTab(null)}}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo/>
-        <ContenedorWebcam/>
+        {/* <ContenedorWebcam/> */}
         <button
           onClick={toggleMenu}
           type="button"

@@ -3,9 +3,12 @@ import { Slaider } from '@/components/carrucel/slaider';
 import { todos_productos } from './db-todosProductos';
 import { dbOfertas } from './db-ofertas';
 import ContenedorProductos from '@/components/productos/contenedorProducto';
-import { nueva_temporada } from './db-nueva-temporada';
+import { nueva_temporada_kite } from './db-nueva-temporada-kite';
+import { nueva_temporada_wing } from './db-nueva-temporada-wing';
 import Imagen from '../../../public/fotos/portada/portada.jpg'
 import Image from 'next/image';
+import AboutUs from '@/components/sobre-nosotros/aboutUs';
+import { BlackImage } from '@/components/portada/black-image';
 
 
 
@@ -33,31 +36,26 @@ export default function Home({params}) {
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
-
-      <div className="relative w-screen h-screen">
-      <Image
-        src={Imagen}
-        alt="Kitesurf en Tenerife"
-        loading="lazy"
-        style={{ position: 'absolute', objectFit: 'cover', width: '100%', height: '100%' }}
-      />
-      <h1 className="p-6 text-4xl md:text-5xl lg:text-7xl text-white font-semibold absolute bottom-0 left-0 mb-4 mr-4">
-        <span className="block mb-2 md:mb-4">KITESURF &</span>
-        <span>WINGFOIL SHOP</span>
-      </h1>
-    </div>
+      <BlackImage/>
 
       <section>
-        <ContenedorProductos idioma={idioma} productos={nueva_temporada}/>
+        <h2 className="flex text-4xl text-blue-500 bold justify-center m-4">Nueva Temporada</h2>
+        <ContenedorProductos idioma={idioma} productos={nueva_temporada_kite}/>
+        <ContenedorProductos idioma={idioma} productos={nueva_temporada_wing}/>
       </section>
       <section>
+        
+      </section>
+      <section>
+      <h2 className="flex text-4xl text-blue-500 bold justify-center m-4">Todos los Productos</h2>
         <ContenedorProductos idioma={idioma} productos={todos_productos}/>
       </section>
       <section className='flex justify-center'>
       <Slaider idioma={idioma} db={dbOfertas} mwith={'xs'}/>
-
       </section>
-
+      <section>
+        <AboutUs idioma={idioma}/>
+      </section>
     </div>
   );
 }

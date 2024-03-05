@@ -7,7 +7,7 @@ import outlet from '/public/fotos/nuevaTemporada/outlet.png'
 export const todos_productos = {
 
     es: {
-      titulo: 'Todos los Productos',
+      titulo: '',
       productos: [
         {
           title: 'Cometas',
@@ -49,7 +49,7 @@ export const todos_productos = {
     },
   
     en: {
-      titulo: 'New Season',
+      titulo: '',
       productos: [
         {
           title: 'Kites',

@@ -1,13 +1,13 @@
 import kite from '../../../public/fotos/nuevaTemporada/kite.png'
-import wings from '../../../public/fotos/nuevaTemporada/wings.png'
+import barra from '../../../public/fotos/nuevaTemporada/test.png'
 import tablas from '../../../public/fotos/nuevaTemporada/tablas.png'
 import pad from '../../../public/fotos/nuevaTemporada/pad.png'
-import test from '../../../public/fotos/nuevaTemporada/test.png'
 
-export const nueva_temporada = {
+
+export const nueva_temporada_kite = {
 
     es: {
-      titulo: 'Nueva Temporada',
+      titulo: 'KiteSurf',
       productos: [
         {
           title: 'Cometas',
@@ -15,17 +15,18 @@ export const nueva_temporada = {
           url: 'https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/cometas-kitesurf-market/nueva-temporada-cometas/',
           alt:'Imagen de una cometa de kitesurf',
         },
-        {
-          title: 'Wings',
-          src: wings,
-          url: 'https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/wings-tablas-wing-foil/',
-          alt:'Imagen de un ala de Wing Foil',
-        },
+
         {
           title: 'Tablas',
           src: tablas,
           url: 'https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/tablas-kitesurf-market/nueva-temporada-tablas/',
           alt:'Imagen de una tabla de kitesurf',
+        },
+        {
+          title: 'Barras',
+          src: barra,
+          url:'',
+          alt: 'Imagen de una barra de kitesurf'
         },
         {
           title: 'Accesorios',
@@ -35,45 +36,45 @@ export const nueva_temporada = {
         },
         {
           title: 'Test',
-          src: test,
+          src: kite,
           url:'https://www.azulkiteboarding.com/es/categoria-producto/kitesurf-market/cometas-kitesurf-market/usado-test-cometas/',
-          alt: 'Imagen de una barra de kitesurf'
+          alt: 'Imagen de una cometa de kitesurf'
         },
       ]
     },
   
     en: {
-      titulo: 'New Season',
+      titulo: 'KiteSurf',
       productos: [
         {
           title: 'Kites',
           src: kite,
-          url: 'https://www.azulkiteboarding.com/en/categoria-producto/kitesurf-market-en/kites-kitesurf-market/new-season-en/',
-          alt:'Image of a kite',
-        },
-        {
-          title: 'Wings',
-          src: wings,
-          url: 'https://www.azulkiteboarding.com/en/categoria-producto/kitesurf-market-en/wingfoil-en/new-season-en-wingfoil-en/',
-          alt:'Image of a Wing Foil wing',
+          url: 'https://www.azulkiteboarding.com/en/product-category/kitesurf-market/kites-kitesurf-market/new-season-kites/',
+          alt: 'Image of a kitesurf kite',
         },
         {
           title: 'Boards',
           src: tablas,
-          url: 'https://www.azulkiteboarding.com/en/categoria-producto/kitesurf-market-en/boards/new-season-en-boards/',
-          alt:'Image of a kiteboard',
+          url: 'https://www.azulkiteboarding.com/en/product-category/kitesurf-market/boards-kitesurf-market/new-season-boards/',
+          alt: 'Image of a kitesurf board',
+        },
+        {
+          title: 'Bars',
+          src: barra,
+          url: 'https://www.azulkiteboarding.com/en/product-category/kitesurf-market/bars-kitesurf-market/new-season-bars/',
+          alt: 'Image of a kitesurf bar',
         },
         {
           title: 'Accessories',
           src: pad,
-          url: 'https://www.azulkiteboarding.com/en/categoria-producto/kitesurf-market-en/accessories/new-season-en-accessories/',
-          alt:'Image of kite pads',
+          url: 'https://www.azulkiteboarding.com/en/product-category/kitesurf-market/accessories-kitesurf-market/new-season-accessories/',
+          alt: 'Image of kitesurf pads',
         },
         {
-          title: 'Tested',
-          src: test,
-          url: 'https://www.azulkiteboarding.com/en/categoria-producto/kitesurf-market-en/used-test/',
-          alt:'Image of a kite bar'
+          title: 'Test',
+          src: kite,
+          url: 'https://www.azulkiteboarding.com/en/product-category/kitesurf-market/kites-kitesurf-market/used-test-kites/',
+          alt: 'Image of a kitesurf kite'
         },
       ]
     }
