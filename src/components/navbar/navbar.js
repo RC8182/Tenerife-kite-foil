@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { datos } from "./db";
 import { DropdownButton } from "./dropdownButton";
 const ContenedorWebcam= dynamic(()=> import ("../webcam/contenedorWebcam"));
@@ -7,7 +7,7 @@ import Logo from "../logo";
 import dynamic from "next/dynamic";
 import { Idiomas } from "../idiomas";
 
-export default function Navbar ({idioma}) {
+export default function Navbar ({idioma, menu}) {
   const lang=(idioma==='es')? datos.es : datos.en;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openTab, setOpenTab] = useState(null);
@@ -20,22 +20,25 @@ export default function Navbar ({idioma}) {
 
   return (
     <div className="text-black bg-blue-500" onMouseLeave={()=>{setOpenTab(null)}}>
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2">
         <Logo/>
-        {/* <ContenedorWebcam/> */}
-        <button
-          onClick={toggleMenu}
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-blue-700 bg-gray-100 rounded-lg md:hidden"
-          aria-controls="navbar-dropdown"
-          aria-expanded={isMenuOpen}
-          title="hamburguer button"
-        >
-
-          <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        {(menu===true)?
+                <button
+                onClick={toggleMenu}
+                type="button"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-blue-700 bg-gray-100 rounded-lg md:hidden"
+                aria-controls="navbar-dropdown"
+                aria-expanded={isMenuOpen}
+                title="hamburguer button"
+              >
+                          <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
+        : <div/>}
+
+
+
         <div className="hidden md:block">
           <Idiomas idioma={idioma}/>
         </div>

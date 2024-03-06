@@ -1,62 +1,52 @@
 import Link from 'next/link';
-import azul from '../../../public/logo/azul-no-fondo.png'
-import tenerife from '../../../public/logo/logo-blanco.png'
-import face from '../../../public/logo/logo-face.png'
+import azul from '../../../public/logo/azul-no-fondo.png';
+import face from '../../../public/logo/logo-face.png';
 import Image from 'next/image';
 import { datos } from './db';
 
-export default function Footer ({idioma}) {
-    const datosFooter= (idioma==='es')? datos.es : datos.en
-    return (
-        <div className="bg-blue-500 text-white py-8">
-            <div className="container mx-auto flex flex-col items-center">
-                    {/* Logo */}
-                    <Link href="/" className="font-semibold text-xl tracking-tight mb-4 md:mb-0">
-                        <Image
-                            className="color"
-                            src={tenerife}
-                            alt="Logo de Tenerife Kite Foil"
-                            width={250}
-                            height={'auto'}
-                            priority
+export default function Footer({ idioma }) {
+  const datosFooter = idioma === 'es' ? datos.es : datos.en;
 
-                            />
-                    </Link>
-
-                {/* Partner */}
-                <div className="mb-4">
-                    <p>{datosFooter.footer.azul.titulo}</p>
-                        <Link href="https://www.azulkiteboarding.com" className="font-semibold text-xl tracking-tight mb-4 md:mb-0">
-                            <Image
-                                className="color"
-                                src={azul}
-                                alt="Logo de azul kiteboarding"
-                                width={150}
-                                height={'auto'}
-                                priority
-
-                                />
-                        </Link>
-                </div>
-        
-                {/* Facebook Group */}
-                <div className="mb-4">
-                    <p>{datosFooter.footer.face.titulo}</p>
-                    <Link href={datosFooter.footer.face.url} className="font-semibold text-xl tracking-tight mb-4 md:mb-0">
-                        <Image
-                            className="color"
-                            src={face}
-                            alt={datosFooter.footer.face.alt}
-                            width={150}
-                            height={'auto'}
-                            priority
-
-                            />
-                    </Link>
-                </div>
-
-                <p className='p-2'>{datosFooter.footer.rights}</p>
-            </div>
+  return (
+    <div className="bg-blue-500 text-white flex flex-col">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center align-items-center p-4">
+        {/* Partner */}
+          <div className='flex flex-col '>
+            <p>{datosFooter.footer.azul.titulo}</p>
+          <div className='flex justify-center'>
+          <Link href="https://www.azulkiteboarding.com">
+            <Image
+              className="color"
+              src={azul}
+              alt="Logo de azul kiteboarding"
+              width={150}
+              height={'auto'}
+              priority
+            />
+          </Link>
+          </div>
         </div>
-      );
+
+        {/* Facebook Group */}
+        <div className='flex flex-col '>
+          <p>{datosFooter.footer.face.titulo}</p>
+          <div className='flex justify-center'>
+          <Link href={datosFooter.footer.face.url}>
+            <Image
+              className="color"
+              src={face}
+              alt={datosFooter.footer.face.alt}
+              width={150}
+              height={'auto'}
+              priority
+            />
+          </Link>
+          </div>
+        </div>
+      </div>
+      <div className="mt-1 flex flex-col mb-12 text-center">
+        <p className="p-2">{datosFooter.footer.rights}</p>
+      </div>
+    </div>
+  );
 }

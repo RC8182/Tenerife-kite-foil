@@ -3,7 +3,7 @@ export const datos = {
     "footer": {
       "rights": "© 2024 Tenerife Kite Foil. Todos los derechos reservados.",
       "azul": {
-        titulo: 'Nuestro Socio',
+        titulo: 'En Colaboración con: ',
         url: 'https://www.azulkiteboarding.com/es',
         alt: 'Logo de Azul Kiteboarding'
       },

@@ -8,7 +8,7 @@ import { nueva_temporada_wing } from './db-nueva-temporada-wing';
 import Imagen from '../../../public/fotos/portada/portada.jpg'
 import Image from 'next/image';
 import AboutUs from '@/components/sobre-nosotros/aboutUs';
-import { BlackImage } from '@/components/portada/black-image';
+import { BlackImage } from '@/components/portada/black-image-scroll';
 
 
 
@@ -36,9 +36,9 @@ export default function Home({params}) {
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
-      <BlackImage/>
+      <BlackImage idioma={idioma}/>
 
-      <section>
+      {/* <section>
         <h2 className="flex text-4xl text-blue-500 bold justify-center m-4">Nueva Temporada</h2>
         <ContenedorProductos idioma={idioma} productos={nueva_temporada_kite}/>
         <ContenedorProductos idioma={idioma} productos={nueva_temporada_wing}/>
@@ -55,7 +55,7 @@ export default function Home({params}) {
       </section>
       <section>
         <AboutUs idioma={idioma}/>
-      </section>
+      </section> */}
     </div>
   );
 }
