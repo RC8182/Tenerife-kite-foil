@@ -1,26 +1,29 @@
-import SilderImg01 from '../../../public/fotos/carrucel/1.png'
-import SilderImg02 from '../../../public/fotos/carrucel/2.png'
-import SilderImg03 from '../../../public/fotos/carrucel/3.png'
+import SilderImg01 from '/public/fotos/slider/wing/1.png'
+import SilderImg02 from '/public/fotos/slider/wing/2.png'
+import SilderImg03 from '/public/fotos/slider/wing/3.png'
 
 
 
-export const dbOfertas = {
+export const dbSlider = {
   "es": {
     "slaider": {
-      "titulo": "Nuestras ofertas",
+      "titulo": "",
       "subtitulo": "",
       "items":[
         {
           img: SilderImg01,
-          desc:'Lacuna 9 M'
+          desc:'',
+          alt:''
         },
         {
           img: SilderImg02,
-          desc:'Eleveight 4M'
+          desc:'',
+          alt:''
         },
         {
           img: SilderImg03,
-          desc:'Lacuna 9 M'
+          desc:'',
+          alt:''
         },
 
       ],
@@ -28,20 +31,23 @@ export const dbOfertas = {
   },
   "en": {
     "slaider": {
-      "titulo": "Ours offerts",
+      "titulo": "",
       "subtitulo": "",
       "items":[
         {
           img: SilderImg01,
-          desc:'Lacuna 9 M'
+          desc:'',
+          alt:''
         },
         {
           img: SilderImg02,
-          desc:'Eleveight 4M'
+          desc:'',
+          alt:''
         },
         {
           img: SilderImg03,
-          desc:'Lacuna 9 M'
+          desc:'',
+          alt:''
         },
 
       ],

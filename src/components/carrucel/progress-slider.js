@@ -34,31 +34,35 @@ export default function ProgressSlider({ items}) {
 
 
   return (
-    <div className="w-full max-w-5xl mx-auto text-center">
+    <div className="w-screen text-center">
       {/* Item image */}
       <div className="transition-all duration-150 delay-300 ease-in-out">
-        <div className="relative flex flex-col" ref={itemsRef}>
+        <div className="flex flex-col" ref={itemsRef}>
           {items && items.map((e, index) => (
             <div
               key={index}
-              className={`${
+              className={` ${
                 active === index
                   ? 'transition ease-in-out duration-500 delay-200 order-first opacity-100 scale-100'
                   : 'transition ease-in-out duration-300 absolute opacity-0 scale-95'
               }`}
-              //style={{ height: '100%', width: '100%' }}
             >
-              <Image className="rounded-xl" src={e.img} width={1024} height={'auto'} alt={e.desc} />
+              <Image 
+               src={e.img}
+               alt={e.alt}
+               loading="lazy"
+               style={{ position: 'relative', objectFit: 'cover', width: '100%', height: '100%' }} />
 
             </div>
           ))}
         </div>
       </div>
       {/* Buttons */}
-      <div className="max-w-xs sm:max-w-sm md:max-w-3xl mx-auto grid grid-cols-4 md:grid-cols-4 gap-4 mt-8">
+      <div className="max-w-xs sm:max-w-sm md:max-w-3xl mx-auto grid grid-cols-3 md:grid-cols-3 gap-4">
         {items && items.map((item, index) => (
           <button
             key={index}
+            title="slider button"
             className="p-2 rounded focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 group"
             onClick={() => {
               setActive(index);
@@ -71,9 +75,9 @@ export default function ProgressSlider({ items}) {
               }`}
             >
               <span className="block text-sm font-medium text-slate-900 mb-2">{item.desc}</span>
-              <span className="block relative w-full bg-slate-200 h-1 rounded-full" role="progressbar" aria-valuenow={active === index ? progress : 0}>
+              <span className="block relative w-full bg-slate-200 h-1 rounded-full" role="progressbar" aria-valuenow={active === index ? progress : 0}  title="slider progress">
                 <span
-                  className="absolute inset-0 bg-indigo-500 rounded-[inherit]"
+                  className="absolute inset-0 bg-orange-500 rounded-[inherit]"
                   style={{ width: active === index ? `${progress}%` : '0%' }}
                 ></span>
               </span>

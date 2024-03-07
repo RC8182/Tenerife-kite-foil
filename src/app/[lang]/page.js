@@ -1,14 +1,5 @@
 import Navbar from '@/components/navbar/navbar';
-import { Slaider } from '@/components/carrucel/slaider';
-import { todos_productos } from './db-todosProductos';
-import { dbOfertas } from './db-ofertas';
-import ContenedorProductos from '@/components/productos/contenedorProducto';
-import { nueva_temporada_kite } from './db-nueva-temporada-kite';
-import { nueva_temporada_wing } from './db-nueva-temporada-wing';
-import Imagen from '../../../public/fotos/portada/portada.jpg'
-import Image from 'next/image';
-import AboutUs from '@/components/sobre-nosotros/aboutUs';
-import { BlackImage } from '@/components/portada/black-image-scroll';
+import { ContenedorPortada } from '@/components/portada/portada';
 
 
 
@@ -36,26 +27,7 @@ export default function Home({params}) {
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
-      <BlackImage idioma={idioma}/>
-
-      {/* <section>
-        <h2 className="flex text-4xl text-blue-500 bold justify-center m-4">Nueva Temporada</h2>
-        <ContenedorProductos idioma={idioma} productos={nueva_temporada_kite}/>
-        <ContenedorProductos idioma={idioma} productos={nueva_temporada_wing}/>
-      </section>
-      <section>
-        
-      </section>
-      <section>
-      <h2 className="flex text-4xl text-blue-500 bold justify-center m-4">Todos los Productos</h2>
-        <ContenedorProductos idioma={idioma} productos={todos_productos}/>
-      </section>
-      <section className='flex justify-center'>
-      <Slaider idioma={idioma} db={dbOfertas} mwith={'xs'}/>
-      </section>
-      <section>
-        <AboutUs idioma={idioma}/>
-      </section> */}
+      <ContenedorPortada idioma={idioma}/>
     </div>
   );
 }
