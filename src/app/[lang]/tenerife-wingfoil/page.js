@@ -20,12 +20,14 @@ export const metadata = {
 
 
 export default function Wingfoil({params}) {
+  const currentUrl = `https://tenerife-kite-foil.com/${params.lang}/${params.slug}`;
   const idioma= params.lang;
   const currentMetadata = metadata[idioma];
   const data= (idioma==='es')? dbwingfoil.es : dbwingfoil.en;
   return (
     <div>
       <title>{currentMetadata?.title}</title>
+      <link rel="canonical" href={currentUrl} />
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <div className="flex flex-col bg-black flex justify-center">

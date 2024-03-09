@@ -20,10 +20,12 @@ export const metadata = {
 export default function Home({params}) {
   const idioma= params.lang;
   const currentMetadata = metadata[idioma];
+  const currentUrl = `https://tenerife-kite-foil.com/${params.lang}`;
 
   return (
     <div>
       <title>{currentMetadata?.title}</title>
+      <link rel="canonical" href={currentUrl} />
       <meta name="description" content={currentMetadata?.description} />
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
