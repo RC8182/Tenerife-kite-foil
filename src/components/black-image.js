@@ -1,50 +1,24 @@
-'use client'
 // black-image.jsx
-import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { TextHover } from './text-hover';
 
-export const BlackImage = ({ titulo, src, alt, link }) => {
-  const [isTouched, setIsTouched] = useState(true);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  const handleClick = (e) => {
-    if (isSmallScreen) {
-      e.preventDefault();
-      setIsTouched(true);
-      const url = e.currentTarget.parentNode.href;
-      setTimeout(() => {
-        window.open(url, '_blank');
-      }, 2000);
-    }
-  };
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
+export const BlackImage = async({ titulo, src, alt, link }) => {
 
   return (
     <div>
       <section className="h-full w-full">
-        <div className={` relative filter grayscale ${isTouched ? 'hover:filter-none' : ''} transition-all duration-500`}>
-          <Link href={link} passHref>
-            <div onClick={handleClick} className="flex relative items-center justify-center">              
-                <Image
-                  src={src}
-                  alt={alt}
-                  loading="lazy"
-                  className='w-full h-full relative object-cover '
-                />
-              <div className={`text-5xl text-white md:text-7xl ${isTouched ? 'hover:text-8xl' : ''} transition-all duration-500 absolute`}>
-                <h1>{titulo}</h1>
+        <div className={`relative filter grayscale hover:filter-none transition-all duration-500`}>
+          <Link href={link} passHref target='blank'>
+            <div onClick={handleClick(link)} className="flex relative items-center justify-center">              
+              <Image
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className='w-full h-full relative object-cover '
+              />
+              <div className={"absolute inset-0 flex items-center justify-center text-black"}>
+                <TextHover title={titulo}/>
               </div>
             </div>
           </Link>
@@ -52,5 +26,15 @@ export const BlackImage = ({ titulo, src, alt, link }) => {
       </section>
     </div>
   );
+  
 };
 
+function handleClick(e) {
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    e.preventDefault();
+    const url = e.currentTarget.parentNode.href;
+    setTimeout(() => {
+      window.open(url, '_blank');
+    }, 2000);
+  }
+}

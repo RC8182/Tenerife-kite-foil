@@ -9,19 +9,19 @@ export const dbSlider = {
     "slaider": {
       "titulo": "",
       "subtitulo": "",
-      "items":[
+      "images":[
         {
-          img: SilderImg01,
+          url: SilderImg01,
           desc:'',
           alt:''
         },
         {
-          img: SilderImg02,
+          url: SilderImg02,
           desc:'',
           alt:''
         },
         {
-          img: SilderImg03,
+          url: SilderImg03,
           desc:'',
           alt:''
         },
@@ -33,7 +33,7 @@ export const dbSlider = {
     "slaider": {
       "titulo": "",
       "subtitulo": "",
-      "items":[
+      "images":[
         {
           img: SilderImg01,
           desc:'',

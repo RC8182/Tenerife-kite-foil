@@ -1,5 +1,7 @@
 import Navbar from '@/components/navbar/navbar';
-import { ContenedorPortada } from '@/components/portada/portada';
+import { ContenedorPortada } from '@/components/portada/portada';;
+import AboutUs from '@/components/sobre-nosotros/aboutUs';
+import { ContenedorTabs } from '@/components/tabsProductos/contenedorTabs';
 
 
 
@@ -30,6 +32,8 @@ export default function Home({params}) {
       <meta name="keywords" content={currentMetadata?.keywords} />
       <Navbar idioma={idioma} />
       <ContenedorPortada idioma={idioma}/>
+      <AboutUs idioma={idioma}/>
+      <ContenedorTabs/>
     </div>
   );
 }

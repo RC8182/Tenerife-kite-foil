@@ -23,6 +23,8 @@ export default function Kitesurf({params}) {
   const idioma= params.lang;
   const currentMetadata = metadata[idioma];
   const data= (idioma==='es')? dbKitesurf.es : dbKitesurf.en;
+  const imageObj= dbSlider.es.slaider.images
+
   return (
     <div>
       <title>{currentMetadata?.title}</title>
@@ -31,7 +33,7 @@ export default function Kitesurf({params}) {
       <meta name="keywords" content={currentMetadata?.keywords} />
       <div className="flex flex-col bg-black flex justify-center">
         <section className="text-center">
-          <Slaider idioma={idioma} db={dbSlider} mwith={''} />
+          <Slaider idioma={idioma} imageObj={imageObj} mwith={''} db={dbSlider}/>
         </section>
         <section className="grid grid-cols-1 md:grid-cols-3 gap-1">
           {data && data.map((e,i)=>{

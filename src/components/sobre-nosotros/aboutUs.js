@@ -12,21 +12,20 @@ const aboutUs = {
   };
   
 
-const AboutUs = ({idioma}) => {
+  const AboutUs = ({idioma}) => {
     const data=(idioma ==='es')? aboutUs.es : aboutUs.en;
-  return (
-    <div className="flex flex-col items-center justify-center m-8">
-      <main className="flex flex-col p-4 items-center justify-center flex-1 text-center">
-        <h1 className="text-4xl text-blue-500 bold ">
-          {data.title}
-        </h1>
-
-        <p className="mt-3 text-xl md:text-2xl text-white rounded-md bg-blue-500 p-4">
-          {data.text}
-        </p>
-      </main>
-    </div>
-  );
+    return (
+        <div className="flex flex-col items-center justify-center bg-blue-500 m-0 mb-2">
+            <main className="flex flex-col p-4 items-center justify-center text-center">
+                <h1 className="text-4xl text-white bold">
+                    {data.title}
+                </h1>
+                <p className="text-xl md:text-2xl text-white p-4">
+                    {data.text}
+                </p>
+            </main>
+        </div>
+    );
 }
 
 export default AboutUs;
