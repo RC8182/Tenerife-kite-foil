@@ -1,5 +1,5 @@
 import Navbar from '@/components/navbar/navbar';
-import { ContenedorPortada } from '@/components/portada/portada';;
+import { ContenedorPortada } from '@/components/portada/portada';
 import AboutUs from '@/components/sobre-nosotros/aboutUs';
 import { ContenedorTabs } from '@/components/tabsProductos/contenedorTabs';
 
@@ -19,10 +19,13 @@ export const metadata = {
 };
 
 
-export default function Home({params}) {
+export default async function Home({params}) {
   const idioma= params.lang;
   const currentMetadata = metadata[idioma];
   const currentUrl = `https://tenerife-kite-foil.com/${params.lang}`;
+
+  
+
 
   return (
     <div>
@@ -33,7 +36,7 @@ export default function Home({params}) {
       <Navbar idioma={idioma} />
       <ContenedorPortada idioma={idioma}/>
       <AboutUs idioma={idioma}/>
-      <ContenedorTabs/>
+      {/* <ContenedorTabs/> */}
     </div>
   );
 }

@@ -1,15 +1,21 @@
+import { fetchStrapi } from "@/utils/functions";
 import { BlackImage } from "../black-image";
-import { dbPortada } from "./dbPortada";
 
 
-export const ContenedorPortada = ({idioma}) => {
-  const data= (idioma==='es')? dbPortada.es : dbPortada.en;
+
+export const ContenedorPortada = async({idioma}) => {
+  const data= await fetchStrapi('portadas', idioma, 'black');
+
   return (
     <div>
       <section className="flex flex-col md:flex-row">
-        {data && data.map((e,i)=>{
+        {data.data && data.data.map((e,i)=>{
           return <div key={i} className="w-full h-1/2 md:w-1/2  md:h-full">
-                    <BlackImage titulo={e.titulo} src={e.src} alt={e.alt} link={e.link}/>
+                    <BlackImage 
+                    titulo={e.attributes.black.title} 
+                    src={e.attributes.black.image.data.attributes.url} 
+                    alt={e.attributes.black.alt} 
+                    link={e.attributes.black.url}/>
                   </div> 
         })}
       </section>

@@ -1,7 +1,6 @@
 import { Slaider } from '@/components/carrucel/slaider';
-import { dbSlider } from './db.slider';
-import { dbKitesurf } from './db.kitesurf';
 import { BlackImage } from '@/components/black-image';
+import { fetchStrapi } from '@/utils/functions';
 
 export const metadata = {
   en: {
@@ -18,12 +17,17 @@ export const metadata = {
 
 
 
-export default function Kitesurf({params}) {
+export default async function Kitesurf({params}) {
   const currentUrl = `https://tenerife-kite-foil.com/${params.lang}/${params.slug}`;
   const idioma= params.lang;
   const currentMetadata = metadata[idioma];
-  const data= (idioma==='es')? dbKitesurf.es : dbKitesurf.en;
-  const imageObj= dbSlider.es.slaider.images
+  const slider= await fetchStrapi('sliders', idioma, 'slider');
+  const sliderObj=slider.data[0]?.attributes.slider[0]
+  const blackImage=await fetchStrapi('kite-page-cards', idioma, 'black');
+  const objBlackImage= blackImage.data[0]?.attributes
+  const listaBlackImage= objBlackImage?.black
+
+
 
   return (
     <div>
@@ -33,12 +37,12 @@ export default function Kitesurf({params}) {
       <meta name="keywords" content={currentMetadata?.keywords} />
       <div className="flex flex-col bg-black flex justify-center">
         <section className="text-center">
-          <Slaider idioma={idioma} imageObj={imageObj} mwith={''} db={dbSlider}/>
+          <Slaider idioma={idioma} sliderObj={sliderObj} mwith={''} />
         </section>
         <section className="grid grid-cols-1 md:grid-cols-3 gap-1">
-          {data && data.map((e,i)=>{
+          {listaBlackImage && listaBlackImage.map((e,i)=>{
             return <div key={i} className="w-auto h-auto">
-                      <BlackImage titulo={e.titulo} src={e.src} alt={e.alt} link={e.link}/>
+                      <BlackImage titulo={e.title} src={e.image.data.attributes.url} alt={e.alt} link={e.url}/>
                     </div> 
           })}
         </section>

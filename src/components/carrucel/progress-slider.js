@@ -2,13 +2,14 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
-export default function ProgressSlider({ items }) {
+export default function ProgressSlider({ obj }) {
   const duration = 5000;
   const itemsRef = useRef(null);
   const frame = useRef(0);
   const firstFrameTime = useRef(performance.now());
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
+  const sliderList=obj?.slider.data;
 
   useEffect(() => {
     firstFrameTime.current = performance.now();
@@ -26,7 +27,7 @@ export default function ProgressSlider({ items }) {
     } else {
       timeFraction = 1;
       setProgress(0);
-      setActive((active + 1) % items.length);
+      setActive((active + 1) % sliderList.length);
     }
   };
 
@@ -35,8 +36,8 @@ export default function ProgressSlider({ items }) {
       {/* Item image */}
       <div className="transition-all duration-150 delay-300 ease-in-out">
         <div className="flex flex-col" ref={itemsRef}>
-          {items &&
-            items.map((e, index) => (
+          {sliderList &&
+            sliderList.map((e, index) => (
               <div
                 key={index}
                 className={` ${
@@ -46,8 +47,10 @@ export default function ProgressSlider({ items }) {
                 }`}
               >
                 <Image
-                  src={e.url}
-                  alt={e.alt}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_LOCAL_HOST}${e.attributes.url}`}
+                  // alt={alt}
+                  width={1000}
+                  height={1000}
                   loading="lazy"
                   className="relative object-cover w-full h-full"
                 />
@@ -57,8 +60,8 @@ export default function ProgressSlider({ items }) {
       </div>
       {/* Buttons */}
       <div className="max-w-xs sm:max-w-sm md:max-w-3xl mx-auto grid grid-cols-3 md:grid-cols-3 gap-4">
-        {items &&
-          items.map((item, index) => (
+        {sliderList &&
+          sliderList.map((item, index) => (
             <button
               key={index}
               title="slider button"
@@ -69,7 +72,7 @@ export default function ProgressSlider({ items }) {
               }}
             >
               <span
-                className={`text-center flex flex-col items-center ${
+                className={`text-center flex flex-col sliderList-center ${
                   active === index
                     ? ''
                     : 'opacity-50 group-hover:opacity-100 group-focus:opacity-100 transition-opacity'

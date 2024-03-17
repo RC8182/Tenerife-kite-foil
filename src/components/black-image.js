@@ -5,6 +5,7 @@ import { TextHover } from './text-hover';
 
 export const BlackImage = async({ titulo, src, alt, link }) => {
 
+
   return (
     <div>
       <section className="h-full w-full">
@@ -12,12 +13,14 @@ export const BlackImage = async({ titulo, src, alt, link }) => {
           <Link href={link} passHref target='blank'>
             <div onClick={handleClick(link)} className="flex relative items-center justify-center">              
               <Image
-                src={src}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_LOCAL_HOST}${src}`}
                 alt={alt}
+                width={1000}
+                height={1000}
                 loading="lazy"
                 className='w-full h-full relative object-cover '
               />
-              <div className={"absolute inset-0 flex items-center justify-center text-black"}>
+              <div className={"absolute inset-0 flex items-center justify-center text-white"}>
                 <TextHover title={titulo}/>
               </div>
             </div>
