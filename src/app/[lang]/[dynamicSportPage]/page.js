@@ -9,12 +9,12 @@ export default async function Page ({params}) {
     const page= params.dynamicSportPage;
     const apiPage= await fetchStrapi('tenerife-sport-pages', idioma, 'slider','black');
     const objSelectedPage = apiPage.data.find(item => item.attributes.page_id === page);
-    const sliderObj=objSelectedPage.attributes.slider[0];
-    const blackObj=objSelectedPage.attributes;
-    const listaBlackImage= blackObj.black;
-    const meta_title= objSelectedPage.attributes.metadata_title;
-    const meta_description= objSelectedPage.attributes.metadata_title;
-    const meta_keywords= objSelectedPage.attributes.metadata_title;
+    const sliderObj=objSelectedPage?.attributes.slider[0];
+    const blackObj=objSelectedPage?.attributes;
+    const listaBlackImage= blackObj?.black;
+    const meta_title= objSelectedPage?.attributes.metadata_title;
+    const meta_description= objSelectedPage?.attributes.metadata_title;
+    const meta_keywords= objSelectedPage?.attributes.metadata_title;
  
 
 
