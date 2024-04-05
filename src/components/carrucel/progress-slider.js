@@ -9,7 +9,8 @@ export default function ProgressSlider({ obj }) {
   const firstFrameTime = useRef(performance.now());
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
-  const sliderList=obj?.slider.data;
+  const sliderList=obj?.imagenes.data;
+
 
   useEffect(() => {
     firstFrameTime.current = performance.now();
@@ -32,7 +33,7 @@ export default function ProgressSlider({ obj }) {
   };
 
   return (
-    <div className="w-64 xl:w-screen text-center">
+    <div className="w-full xl:w-screen text-center">
       {/* Item image */}
       <div className="transition-all duration-150 delay-300 ease-in-out">
         <div className="flex flex-col" ref={itemsRef}>

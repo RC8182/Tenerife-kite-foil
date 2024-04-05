@@ -1,7 +1,8 @@
-version: '3.9'
-
+version: "3.9"
 services:
   tenerife:
+    image: tenerife-front
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile

@@ -5,7 +5,6 @@ import { TextHover } from './text-hover';
 
 export const BlackImage = async({ titulo, src, alt, link }) => {
 
-
   return (
     <div>
       <section className="h-full w-full">

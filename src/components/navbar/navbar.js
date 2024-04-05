@@ -26,7 +26,7 @@ export default function Navbar ({idioma, menu}) {
                 <button
                 onClick={toggleMenu}
                 type="button"
-                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-blue-700 bg-gray-100 rounded-lg md:hidden"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white border border-white bg-blue-500 rounded-lg md:hidden"
                 aria-controls="navbar-dropdown"
                 aria-expanded={isMenuOpen}
                 title="hamburguer button"
@@ -40,14 +40,14 @@ export default function Navbar ({idioma, menu}) {
 
 
         <div className="hidden md:block">
-          <Idiomas idioma={idioma}/>
+          <Idiomas idioma={idioma} />
         </div>
         
       </div>
       <div className={`w-full md:block md:w-auto ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-dropdown">
         <ul className="flex flex-col justify-center font-medium p-4 md:p-0 mt-4 bg-orange-500 md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
           <li>
-            <a href="#" className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
+            <a href="/" className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
           </li>
           {tabs?.map((e,i) => (
             <div key={i} >

@@ -4,19 +4,17 @@ import { fetchStrapi } from '@/utils/functions';
 import React from 'react'
 
 export default async function Page ({params}) {
-    const currentUrl = `https://tenerife-kite-foil.com/${params.lang}/${params.slug}`;
+    const currentUrl = `https://tenerife-kite-foil.com/${params.lang}/${params.dynamicSportPage}`;
     const idioma= params.lang;
     const page= params.dynamicSportPage;
-    const apiPage= await fetchStrapi('tenerife-sport-pages', idioma, 'slider','black');
-    const objSelectedPage = apiPage.data.find(item => item.attributes.page_id === page);
+    const apiPage= await fetchStrapi('paginas', idioma, 'slider','black');
+    const objSelectedPage = apiPage.data.find(item => item.attributes.slug === page);
     const sliderObj=objSelectedPage?.attributes.slider[0];
     const blackObj=objSelectedPage?.attributes;
     const listaBlackImage= blackObj?.black;
     const meta_title= objSelectedPage?.attributes.metadata_title;
     const meta_description= objSelectedPage?.attributes.metadata_title;
     const meta_keywords= objSelectedPage?.attributes.metadata_title;
- 
-
 
     return (
         <div>

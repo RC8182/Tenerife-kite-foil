@@ -5,15 +5,15 @@ import { fetchStrapi } from '@/utils/functions';
 export const Offers = async({idioma}) => {
     const offersApi=await fetchStrapi('ofertas', idioma, 'oferta','');
     const offersList= offersApi.data[0]?.attributes.oferta;
-    const title= (idioma==='es')? 'Nuestras Ofertas':'Our Offers';
+    const title= (idioma==='es')? 'Nuestras Ofertas':'Sales';
   return (
-    <div id='contenedor-ofertas' className='p-8'>
+    <div id='contenedor-ofertas' className='p-8 '>
         <div className="flex flex-col p-4 items-center justify-center text-center bg-blue-500">
             <h1 className="text-4xl text-white bold">
                 {title}
             </h1>
         </div>
-        <div className='flex gap-4 flex-wrap'>
+        <div className='flex gap-4 flex-wrap justify-center'>
             {
                 offersList && offersList.map((e,i)=>{
                     return <div key={i}> 
@@ -22,7 +22,8 @@ export const Offers = async({idioma}) => {
                         alt={e.alt}
                         title={e.title} 
                         idioma={idioma} 
-                        discount={e.discount_percent} 
+                        discount={e.discount_percent}
+                        estado={e.estado} 
                         price={e.price}
                         link={e.url}/>
                     </div>
