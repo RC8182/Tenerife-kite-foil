@@ -1,10 +1,12 @@
 'use client'
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 
 export const Idiomas = ({ idioma }) => {
-  const params= useParams();
-  const ruta = params.dynamicSportPage ? `/${params.dynamicSportPage}` : '';
+  const pathname = usePathname()
+  const dividir= pathname.split('/')
+  const ruta = dividir[2] ? `/${dividir[2]}` : '';
+
   return (
     <div className="p-2 w-30 h-8 text-sm text-white bg-blue-600 rounded-lg flex items-center justify-center">
       {(idioma === 'en') ?
