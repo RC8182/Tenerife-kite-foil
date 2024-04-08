@@ -34,7 +34,7 @@ export function middleware(request) {
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
     // Excepciones para rutas específicas
-    if (pathname.startsWith('/public') || pathname === '/robots.txt' || pathname === '/sitemap.xml' || pathname === '/uploads' || pathname === '/admin') {
+    if (pathname.startsWith('/public') || pathname === '/robots.txt' || pathname === '/sitemap.xml' || pathname === '/icons/dia/') {
       return;
     }
 

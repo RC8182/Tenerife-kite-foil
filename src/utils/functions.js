@@ -15,3 +15,16 @@ export const fetchStrapi = async(slug,locale,component1,component2) => {
     return response
   }
  
+  export async function getData() {
+    const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=28.05&longitude=-16.54&hourly=temperature_2m,weathercode,windspeed_10m,windgusts_10m,winddirection_10m,uv_index&daily=sunrise,sunset&models=gfs_global&current_weather=true&windspeed_unit=kn&timezone=Europe%2FLondon";
+    const res = await fetch(apiUrl, { next: { revalidate: 1500 } })
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+   
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+   
+    return res.json()
+  }
