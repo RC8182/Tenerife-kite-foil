@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import sunrise from "/public/Icons/if-weather-sunrise-removebg-preview.png"
+import sunrise from "/public/icons/if-weather-sunrise-removebg-preview.png"
 export const Sunrise = ({ amanecer, idioma }) => {
     const title= (idioma === 'es')? 'Amanecer': 'Sunrise';
     return (

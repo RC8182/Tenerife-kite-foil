@@ -22,7 +22,7 @@ export default async function Page ({params}) {
           <link rel="canonical" href={currentUrl} />
           <meta name="description" content={meta_description} />
           <meta name="keywords" content={meta_keywords} />
-          <div className="flex flex-col bg-black flex justify-center">
+          <div className="flex flex-col bg-black justify-center">
             <section className="text-center">
               <Slaider idioma={idioma} sliderObj={sliderObj} mwith={''} />
             </section>
