@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import sunset from "/public/icons/if-weather-sunset-removebg-preview.png"
-export const Sunset = ({ atardecer }) => {
-
+export const Sunset = ({ atardecer, idioma }) => {
+    const title= (idioma === 'es')? 'Atardecer' : 'Sunset';
     return (
         <div className="flex flex-col text-xs">
             <div className="flex items-center">
@@ -16,8 +16,8 @@ export const Sunset = ({ atardecer }) => {
                 />
                 <div className="flex flex-col">
                     <div className="flex items-center">
-                        <div className="mr-2">Atardecer:</div>
-                        <div>{atardecer}</div>
+                        <div className="mr-2">{title}:</div>
+                        <div>{atardecer} PM</div>
                     </div>
                 </div>
             </div>

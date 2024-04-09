@@ -3,7 +3,8 @@ import { ActualWind } from "@/components/weather/actualWind";
 import Webcam from "@/components/webcam/webcam";
 
 
-export default async function Page () {
+export default async function Page ({params}) {
+  const idioma= params.lang
     const bannerTexts = [
         'Eleveight RSV8 kite 1.279€',
         'Eleveight WSV7 kite 1.279€',
@@ -15,8 +16,9 @@ export default async function Page () {
           <div className="flex justify-center">
             <Webcam width={'auto'} height={'auto'} />
           </div>
-          <div>
-            <ActualWind />
+          <ScrollingBanner title={'Outlet  '} texts={bannerTexts} />
+          <div className="flex justify-center m-2">
+            <ActualWind idioma={idioma} />
           </div>
         </div>
       );

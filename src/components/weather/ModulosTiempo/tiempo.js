@@ -7,40 +7,44 @@ import dpnublado from '/public/icons/dia/nublado.png'
 import npnublado from '/public/icons/noche/moon-night-cloud.png'
 import dlluvia from '/public/icons/dia/sol-lluvia.png'
 import nlluvia from '/public/icons/noche/night-rain.png'
-import dcalima from  '/public/icons/dia/calima.png' 
-import ncalima from '/public/icons/noche/moon-night.png'
+
 
 export const Tiempo = ({ tiempo }) => {
     const fecha = new Date();
     const hora = fecha.getHours();
 
+
     let icon = '';
     switch (tiempo) {
         case 'Despejado':
+        case 'Clear':    
             icon = hora > 7 && hora < 20 ? ddespejado : ndespejado;
             break;
         case 'Nubes Dispersas':
+        case 'Scattered Clouds':    
         case 'Parcialmente Nublado':
+        case 'Partly Cloudy':    
             icon = hora > 7 && hora < 20 ? dpnublado : npnublado ;
             break;
         case 'Mayormente Nublado':
+        case 'Mostly Cloudy':    
         case 'Nublado':
+        case 'Cloudy':    
             icon = hora > 7 && hora < 20 ? dnublado : nnublado;
             break;
         case 'Lluvia Dispersa':
+        case 'Light Rain':    
         case 'Lluvia':
+        case 'Rain':    
             icon = hora > 7 && hora < 20 ? dlluvia :nlluvia ;
-            break;
-        case 'Calima':
-            icon = hora > 7 && hora < 20 ? dcalima : ncalima;
             break;
         default:
             break;
     }
 
     return (
-        <div className="flex flex-col text-base">
-            <div className="flex items-center">
+        <div className="flex text-base">
+            <div className="flex flex-col items-center">
                 <Image
                     className="w-9 h-9 rounded-full mr-2"
                     src={icon}
