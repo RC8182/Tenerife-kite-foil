@@ -1,45 +1,33 @@
-import { Flex, Image } from '@chakra-ui/react'
-import React from 'react'
+import Image from 'next/image';
+import icon from '/public/icons/water_climate_forecast_weather-bajamar-removebg-preview.png'
 
-export const Bajamar = (props) => {
-    const bajamar1= props.bajamar1;
-    const bajamar2= props.bajamar2;
+export const Bajamar = ({idioma, baja1, baja2}) => {
+  const text1= (idioma === 'es')? 'Bajamar 1:' : 'Low Tide 1:';
+  const text2= (idioma === 'es')? 'Bajamar 2:' : 'Low Tide 2:';
 
-  
-  return (
-    <Flex flexDirection={'column'} fontSize={'0.7rem'}>
-        <Flex margin={'2px'}>
-        <Image 
-                className='icono-bajamar'    
-                boxSize='36px'
-                borderRadius='full'
-                src={require('../Icons/water_climate_forecast_weather-bajamar-removebg-preview.png')} 
-                alt='Icono-Bajamar' 
-                zIndex={10}
+
+    return (
+        <div className="flex flex-col text-xs">
+            <div className="flex items-center my-2">
+                <Image
+                    className="icono-bajamar w-9 h-9 rounded-full mr-2"
+                    src={icon}
+                    alt="Icono-Bajamar"
+                    width={36}
+                    height={36}
+                    loading="lazy"
                 />
-        <Flex flexDirection={'column'}>
-            <Flex flexDirection={'row'}>
-            <Flex margin={'2px'}>
-            Bajamar 1:
-            </Flex>
-            <Flex margin={'2px'}>
-            {bajamar1}
-            </Flex>
-            </Flex>
-
-            <Flex flexDirection={'row'}>
-            <Flex margin={'2px'}>
-            Bajamar 2: 
-            </Flex>
-            <Flex margin={'2px'}>
-            {bajamar2}
-            </Flex>
-            </Flex>
-
-        </Flex>
-
-    </Flex>
-
-  </Flex>
-  )
-}
+                <div className="flex flex-col">
+                    <div className="flex items-center">
+                        <div className="mr-2">{text1}</div>
+                        <div>{baja1}</div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="mr-2">{text2}</div>
+                        <div>{baja2}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};

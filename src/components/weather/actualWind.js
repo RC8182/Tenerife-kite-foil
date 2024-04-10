@@ -1,4 +1,3 @@
-import { getData } from "@/utils/functions";
 import { Tiempo } from "./ModulosTiempo/tiempo";
 import { Sunrise } from "./ModulosTiempo/sunrise";
 import { Sunset } from "./ModulosTiempo/sunset";
@@ -7,11 +6,14 @@ import { Uv } from "./ModulosTiempo/uv";
 import { Viento } from "./ModulosTiempo/viento";
 import { RosaViento } from "./ModulosTiempo/RosaViento";
 import { Compass } from "./ModulosTiempo/compass";
+import { getDataWind, getMedano } from "@/utils/functions";
 
 
 export const ActualWind = async ({idioma}) => {
   const horaActual = new Date().getHours().toString().padStart(2, '0');
-  const data = await getData();
+  const data = await getDataWind();
+  // const data_medano= await getMedano();
+  // console.log(data_medano)
   const estadotiempo = data.current_weather.weathercode;
   const amanecer = data.daily.sunrise[0].split('T')[1];
   const atardecer = data.daily.sunset[0].split('T')[1];

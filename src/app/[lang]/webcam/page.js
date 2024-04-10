@@ -1,4 +1,5 @@
 import ScrollingBanner from "@/components/scrollingBanner/scrollingBanner";
+import { ActualTide } from "@/components/weather/actualTide";
 import { ActualWind } from "@/components/weather/actualWind";
 import Webcam from "@/components/webcam/webcam";
 
@@ -36,8 +37,9 @@ export default async function Page ({params}) {
             <Webcam width={'auto'} height={'auto'} />
           </div>
           <ScrollingBanner title={'Outlet  '} texts={bannerTexts} />
-          <div className="flex justify-center m-2">
+          <div className="flex justify-center m-2 gap-4 flex-wrap">
             <ActualWind idioma={idioma} />
+            <ActualTide idioma={idioma}/>
           </div>
         </div>
       );

@@ -1,45 +1,31 @@
-import { Flex, Image } from '@chakra-ui/react'
-import React from 'react'
+import Image from 'next/image';
+import icon from '/public/icons/forecast_weather-pleamar-removebg-preview.png'
+export const Pleamar = ({idioma, alta1, alta2}) => {
+  const text1= (idioma === 'es')? 'Pleamar 1:' : 'High Tide 1:';
+  const text2= (idioma === 'es')? 'Pleamar 2:' : 'High Tide 2:';
 
-export const Pleamar = (props) => {
-    const pleamar1= props.pleamar1;
-    const pleamar2= props.pleamar2;
-
-  
-  return (
-    <Flex flexDirection={'column'} fontSize={'0.7rem'}>
-        <Flex margin={'2px'}>
-        <Image 
-                className='icono-pleamar'    
-                boxSize='36px'
-                borderRadius='full'
-                src={require('../Icons/forecast_weather-pleamar-removebg-preview.png')} 
-                alt='Icono-Pleamar' 
-                zIndex={10}
+    return (
+        <div className="flex flex-col text-xs">
+            <div className="flex items-center my-2">
+                <Image
+                    className="icono-pleamar w-9 h-9 rounded-full mr-2"
+                    src={icon}
+                    alt="Icono-Pleamar"
+                    width={36}
+                    height={36}
+                    loading="lazy"
                 />
-        <Flex flexDirection={'column'}>
-            <Flex flexDirection={'row'}>
-            <Flex margin={'2px'}>
-            Pleamar 1:
-            </Flex>
-            <Flex margin={'2px'}>
-            {pleamar1}
-            </Flex>
-            </Flex>
-
-            <Flex flexDirection={'row'}>
-            <Flex margin={'2px'}>
-            Pleamar 2: 
-            </Flex>
-            <Flex margin={'2px'}>
-            {pleamar2}
-            </Flex>
-            </Flex>
-
-        </Flex>
-
-    </Flex>
-
-  </Flex>
-  )
-}
+                <div className="flex flex-col">
+                    <div className="flex items-center">
+                        <div className="mr-2">{text1}</div>
+                        <div>{alta1}</div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="mr-2">{text2}</div>
+                        <div>{alta2}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};

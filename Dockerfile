@@ -13,6 +13,7 @@ RUN npm install && \
     npm rebuild --arch=x64 --platform=linux --libc=musl sharp && \
     npm i @formatjs/intl-localematcher &&\
     npm i negotiator &&\
+    npm install --save react-apexcharts apexcharts && \
     npx tailwindcss init -p && \
     npm run build
 
