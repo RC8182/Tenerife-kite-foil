@@ -21,22 +21,15 @@ function obtenerMareasDelDia(mareas) {
   // Inicializar las variables para almacenar las mareas
   let pleamar1, pleamar2, bajamar1, bajamar2;
 
-  // Verificar el número de mareas disponibles para el día actual
-  if (mareasOrdenadas.length === 3) {
-      // Si hay solo 3 mareas, consideramos que hay una pleamar y una bajamar
-      pleamar1 = mareasOrdenadas[0];
-      bajamar1 = mareasOrdenadas[1];
-      pleamar2 = bajamar2 = mareasOrdenadas[2];
-  } else if (mareasOrdenadas.length >= 4) {
-      // Si hay 4 o más mareas, consideramos las primeras dos pleamares y las últimas dos bajamares
-      pleamar1 = mareasOrdenadas[0];
-      pleamar2 = mareasOrdenadas[1];
-      bajamar1 = mareasOrdenadas[mareasOrdenadas.length - 2];
-      bajamar2 = mareasOrdenadas[mareasOrdenadas.length - 1];
-  } else {
-      // Si hay menos de 3 mareas, no podemos determinar pleamares ni bajamares
-      console.log("No hay suficientes mareas para el día actual");
-  }
+  // Filtrar las pleamares y bajamares
+  const pleamares = mareasOrdenadas.filter(marea => marea.tipo === "pleamar");
+  const bajamares = mareasOrdenadas.filter(marea => marea.tipo === "bajamar");
+
+  // Asignar los valores a las variables según el tipo de marea
+  pleamar1 = pleamares.length > 0 ? pleamares[0].hora : null;
+  pleamar2 = pleamares.length > 1 ? pleamares[1].hora : null;
+  bajamar1 = bajamares.length > 0 ? bajamares[0].hora : null;
+  bajamar2 = bajamares.length > 1 ? bajamares[1].hora : null;
 
   return { pleamar1, pleamar2, bajamar1, bajamar2 };
 }
@@ -59,33 +52,33 @@ const horarioProximaMarea = new Date(`${proximaMarea.fecha}T${proximaMarea.hora}
 const tipoProximaMarea = proximaMarea.tipo;
 
   return (
-    <div className='contenedor-card bg-white text-black text-18 rounded-lg w-300 h-400  p-8 flex flex-col'>
+    <div className='contenedor-card bg-white text-black font-semibold text-12 rounded-lg min-w-full md:min-w-[350px] h-auto p-2 flex flex-col'>
       <div className='flex flex-col'>
-        <div>
+        <div className="flex justify-center text-lg">
           <h2>{tides}</h2>
         </div>
         <div className='divider border border-orange-300'></div>
       </div>
 
       <div className='m-2 flex justify-center'>
-        <CuentaAtras objetivo={horarioProximaMarea} tipo={tipoProximaMarea} />
+        <CuentaAtras objetivo={horarioProximaMarea} tipo={tipoProximaMarea} idioma={idioma} />
       </div>
 
       <div className='text-xs flex justify-center flex-wrap'>
-        <div className='flex flex-col m-4 p-2'>
-          <Bajamar baja1={bajamar1.hora} baja2={bajamar2.hora} idioma={idioma} />
+        <div className='flex flex-col p-2'>
+          <Bajamar baja1={bajamar1} baja2={bajamar2} idioma={idioma} />
         </div>
 
         <div className='divider border-l-2 border-orange-300'></div>
 
-        <div className='flex flex-col m-4 p-2'>
-          <Pleamar alta1={pleamar1.hora} alta2={pleamar2.hora} idioma={idioma} />
+        <div className='flex flex-col p-2'>
+          <Pleamar alta1={pleamar1} alta2={pleamar2} idioma={idioma} />
         </div>
       </div>
 
       <div className='justify-center'>
         {mareasMes ? (
-          <TideChart min_day={0.5} max_day={0.75} estado={tipoProximaMarea} listaMareas={mareasMes} />
+          <TideChart min_day={0.5} max_day={0.75} estado={tipoProximaMarea} listaMareas={mareasMes} idioma={idioma}/>
         ) : (
           <div>Cargando...</div>
         )}

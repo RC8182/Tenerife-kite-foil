@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-export const TideChart = ({ listaMareas, min_day, max_day, estado }) => {
+export const TideChart = ({ listaMareas, min_day, max_day, estado, idioma }) => {
   const hoy = new Date().getTime();
-  const estadoActual=(estado === 'bajamar')?  'Bajando' :'Subiendo';
+  const bajando= (idioma === 'es')? 'Bajando': 'Falling Tide';
+  const subiendo= (idioma === 'es')? 'Subiendo': 'Rising Tide';
+  const estadoActual=(estado === 'bajamar')?  bajando :subiendo;
 
   function dia(n){
     return n * 86400000;
@@ -25,21 +27,11 @@ export const TideChart = ({ listaMareas, min_day, max_day, estado }) => {
   }];
 
   const [series, setSeries] = useState([]);
+  
 
   useEffect(() => {
     setSeries(newSeries);
-  }, []);
-
-  // Encontrar la marea más cercana en el tiempo a la hora actual
-  const currentMareaData = mareas.reduce((closestMarea, marea) => {
-    const [mareaDate] = marea;
-    const [closestDate] = closestMarea;
-    return Math.abs(hoy - mareaDate) < Math.abs(hoy - closestDate) ? marea : closestMarea;
-  }, mareas[0]);
-
-  const maxY = Math.max(...mareas.map(m => m[1]));
-  const minY = Math.min(...mareas.map(m => m[1]));
-  const rangeY = maxY - minY;
+  }, [listaMareas]); // Se ejecuta cuando listaMareas cambia
 
   const options = {
     chart: {
@@ -51,7 +43,7 @@ export const TideChart = ({ listaMareas, min_day, max_day, estado }) => {
     },
     dataLabels: {
       enabled: true,
-      offsetX: 30
+      offsetX: 15
     },
     stroke: {
       curve: 'smooth'
@@ -100,10 +92,10 @@ export const TideChart = ({ listaMareas, min_day, max_day, estado }) => {
       ],
       points: [{
         x: new Date().getTime(),
-        y: '0',
+        y: 0,
         marker: {
           size: 8,
-          fillColor: '#fff',
+          fillColor: 'rgb(255, 154, 0)',
           strokeColor: '#0093D1',
           radius: 5,
         },
@@ -114,7 +106,7 @@ export const TideChart = ({ listaMareas, min_day, max_day, estado }) => {
             color: '#fff',
             background: '#0093D1',
           },
-          text: Date().slice(16,21) +' hs',
+          text: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}), // Hora actual en formato HH:mm
         }
       }]
     }

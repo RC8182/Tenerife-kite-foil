@@ -1,5 +1,19 @@
 export default {
   images: {
-    domains: ['localhost', 'azul-kite.ddns.net', 'strapi','admin-tenerife.ddns.net'],
+    remotePatterns: [
+      {
+        hostname: 'localhost',
+      },
+      {
+        hostname: 'azul-kite.ddns.net',
+      },
+      {
+        hostname: 'strapi',
+      },
+      {
+        hostname: 'admin-tenerife.ddns.net',
+      },
+      // Agrega más patrones aquí si es necesario
+    ],
   },
 };

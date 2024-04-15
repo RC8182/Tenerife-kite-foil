@@ -1,6 +1,7 @@
 import ScrollingBanner from "@/components/scrollingBanner/scrollingBanner";
 import { ActualTide } from "@/components/weather/actualTide";
 import { ActualWind } from "@/components/weather/actualWind";
+import { ForecastWind } from "@/components/weather/forecastWind";
 import Webcam from "@/components/webcam/webcam";
 
 
@@ -40,6 +41,7 @@ export default async function Page ({params}) {
           <div className="flex justify-center m-2 gap-4 flex-wrap">
             <ActualWind idioma={idioma} />
             <ActualTide idioma={idioma}/>
+            <ForecastWind idioma={idioma}/>
           </div>
         </div>
       );

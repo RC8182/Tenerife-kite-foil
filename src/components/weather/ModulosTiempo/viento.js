@@ -19,11 +19,11 @@ export const Viento = ({ viento, idioma, update }) => {
                 <div className="flex flex-col">
                     <div className="flex items-center">
                         <div className="ml-2">{titulo}</div>
-                        <div className='pl-2'>{viento}</div>
+                        <div className='pl-2'>{`${viento} Knots`}</div>
                     </div>
                     <div className="flex text-xs">
                         <div className="ml-2">{lastUpdate}</div>
-                        <div className="pl-1">{update}</div>
+                        <div className="pl-1">{`${update} Hs`}</div>
                     </div>
                 </div>
             </div>

@@ -2,38 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tenerife-kite-foil.com/es</loc>
-    <lastmod>2023-4-09</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-    <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/en</loc>
-    <lastmod>2023-4-09</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-    <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/es/tenerife-kitesurf</loc>
-    <lastmod>2023-4-9</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-    <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/en/tenerife-kitesurf</loc>
-    <lastmod>2023-4-9</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-      <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/es/tenerife-wingfoil</loc>
-    <lastmod>2023-4-9</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-    <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/en/tenerife-wingfoil</loc>
-    <lastmod>2023-4-9</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-    </url>
-    <url>
+  <url>
     <loc>https://tenerife-kite-foil.com/es/webcam</loc>
-    <lastmod>2023-4-9</lastmod>
-  </url>  </url>
-    <url>
-    <loc>https://tenerife-kite-foil.com/en/webcam</loc>
-    <lastmod>2023-4-9</lastmod>
+    <lastmod>2024-04-11</lastmod>
   </url>
-
+  <url>
+    <loc>https://tenerife-kite-foil.com/en/webcam</loc>
+    <lastmod>2024-04-11</lastmod>
+  </url>
 </urlset>
 <!-- 
 <lastmod>YYYY-MM-DD</lastmod> -->

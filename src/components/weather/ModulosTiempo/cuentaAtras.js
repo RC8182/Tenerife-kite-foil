@@ -8,7 +8,13 @@ function secondsToHours(seconds) {
   return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
 }
 
-export const CuentaAtras = ({ objetivo, tipo }) => {
+export const CuentaAtras = ({ objetivo, tipo, idioma }) => {
+  const loading=(idioma === 'es')? 'Cargando...': 'Loading...';
+  const cambioMarea=(idioma === 'es')? 'Cambio Marea': 'Tidal shift';
+  const to=(idioma === 'es')? 'para': 'to';
+  const pleamar= (idioma === 'es')? 'Pleamar': 'High Tide';
+  const bajamar=(idioma === 'es')? 'Bajamar': 'Low Tide';
+  const estado= (tipo === 'pleamar')? pleamar : bajamar; 
   const [segundosRestantes, setSegundosRestantes] = useState(null);
 
   useEffect(() => {
@@ -37,16 +43,16 @@ export const CuentaAtras = ({ objetivo, tipo }) => {
   }, [objetivo]);
 
   if (segundosRestantes === null) {
-    return <div>Cargando...</div>;
+    return <div>{loading}</div>;
   }
 
   return (
     <div className="CuentaAtras">
       {segundosRestantes === 0 ? (
-        <div>Cambio de marea</div>
+        <div>{cambioMarea}</div>
       ) : (
         <div>
-          Faltan {secondsToHours(segundosRestantes)} para {tipo}.
+          {`${secondsToHours(segundosRestantes)} ${to} ${estado}.`}
         </div>
       )}
     </div>

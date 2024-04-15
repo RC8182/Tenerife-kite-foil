@@ -6,17 +6,15 @@ import { Uv } from "./ModulosTiempo/uv";
 import { Viento } from "./ModulosTiempo/viento";
 import { RosaViento } from "./ModulosTiempo/RosaViento";
 import { Compass } from "./ModulosTiempo/compass";
-import { getDataWind, getMedano } from "@/utils/functions";
+import { getDataWind} from "@/utils/functions";
 
 
 export const ActualWind = async ({idioma}) => {
   const horaActual = new Date().getHours().toString().padStart(2, '0');
   const data = await getDataWind();
-  // const data_medano= await getMedano();
-  // console.log(data_medano)
   const estadotiempo = data.current_weather.weathercode;
-  const amanecer = data.daily.sunrise[0].split('T')[1];
-  const atardecer = data.daily.sunset[0].split('T')[1];
+  const amanecer = data.daily.sunrise[0];
+  const atardecer = data.daily.sunset[0];
 
   var condicion = '';
   if (estadotiempo === 0) {
@@ -44,7 +42,7 @@ export const ActualWind = async ({idioma}) => {
    const fecha_hora = new Date().toLocaleString(lang, options);
 
   return (
-    <div className="flex bg-white text-black font-semibold text-lg rounded-lg w-72 h-auto p-2 flex-col flex-wrap">
+    <div className="flex bg-white text-black font-semibold text-lg rounded-lg min-w-full md:min-w-[350px] h-auto p-2 flex-col flex-wrap">
       <div className="flex flex-row ">
         <div className="flex flex-col m-2">
           <h2>El Medano</h2>
@@ -66,7 +64,7 @@ export const ActualWind = async ({idioma}) => {
       <hr className="border border-orange-300" />
 
       <div className="flex">
-        <Temperature temp_amb={tempActual} temp_agua={'19 º'} idioma={idioma}/>
+        <Temperature temp_amb={tempActual} temp_agua={'18-20 º'} idioma={idioma}/>
       </div>
 
       <hr className="border border-orange-300" />

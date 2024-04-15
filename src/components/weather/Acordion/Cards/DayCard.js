@@ -1,54 +1,36 @@
-import { Flex } from '@chakra-ui/react'
+import React from 'react';
 // import { Olas } from '../../Modulos Tiempo/Olas'
-import { Sunrise } from '../../ModulosTiempo/sunrise'
-import { Sunset } from '../../ModulosTiempo/sunset'
-import { Temperature } from '../../ModulosTiempo/temperature'
-import { VientoAcordion } from '../../Acordion/VientoAcordion'
+import { Sunrise } from '../../ModulosTiempo/sunrise';
+import { Sunset } from '../../ModulosTiempo/sunset';
+import { TemperatureMaxMin } from '../../ModulosTiempo/temperatureMaxMin';
+import { VientoAcordion } from '../../Acordion/VientoAcordion';
 
-export const DayCard = (props) => {
-    const alba= props.alba;
-    const amanecer= props.amanecer;
-    const atardecer= props.atardecer;
-    const crepusculo= props.crepusculo;
-
-    const fecha=props.fecha;
-    const hora= props.hora;
-    const viento= props.viento;
-    const racha= props.racha;
-    const direccion= props.direccion;
+export const DayCard = ({idioma, amanecer, atardecer, temperatura, fecha, hora, viento,racha, direccion}) => {
+  const maxTemp = Math.max(...temperatura);
+  const minTemp = Math.min(...temperatura);
+  
 
   return (
-    <Flex
-        margin={'2px'}
-        width={'auto'}
-        border={'1px'}
-        borderColor={'rgb(255, 154, 0)'}
-        borderRadius={'5px'}>
-        <Flex margin={'2px'} padding={'2px'} flexDirection={'column'} width={'auto'}>
-          <Flex textTransform={'capitalize'}>
-            {fecha}
-          </Flex>
-          <Flex flexDirection={'row'}>
-            <Flex>
-              <Sunrise alba={alba} amanecer={amanecer}/>
-            </Flex>
-            <Flex>
-              <Sunset atardecer= {atardecer} crepusculo= {crepusculo} />
-            </Flex>
-          </Flex>
+    <div className="flex m-2 w-auto border-2 border-orange-300 rounded-md">
+      <div className="m-2 p-2 flex flex-col w-auto">
+        <div className="capitalize">{fecha}</div>
+        <div className="flex flex-row">
+          <div>
+            <Sunrise idioma={idioma} amanecer={amanecer} />
+          </div>
+          <div>
+            <Sunset idioma={idioma} atardecer={atardecer} />
+          </div>
+        </div>
+        <div>
+          <TemperatureMaxMin idioma={idioma} temp_max={maxTemp} temp_min={minTemp}/>
+        </div>
+        <div className="flex flex-col mt-2 w-full">
+          <VientoAcordion idioma={idioma} hora={hora} viento={viento} racha={racha} direccion={direccion} />
+        </div>
 
-          <Flex flexDirection={'column'} width={'100%'}>
-            <VientoAcordion hora={hora} viento={viento} racha={racha} direccion={direccion} />
-          </Flex>
-          <Flex>
-            <Temperature />
-          </Flex>
-          <Flex>
-            {/* <Olas /> */}
-          </Flex>
-          
-        </Flex>
-    
-    </Flex>
-  )
-}
+        <div>{/* <Olas /> */}</div>
+      </div>
+    </div>
+  );
+};

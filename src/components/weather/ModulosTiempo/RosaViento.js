@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import rosa from "/public/icons/kisspng-arrow-clip-art-red-arrow-down-5aaae5eb244620.2286416215211494191486.png"
-import compass from "/public/icons/clipart1138278.png"
+import rosa from "/public/icons/flecha.png"
+import compass from "/public/icons/rosa.png"
 export const RosaViento = ({grados}) => {
 
     const dirViento = 'rotate(' + grados + 'deg)';
