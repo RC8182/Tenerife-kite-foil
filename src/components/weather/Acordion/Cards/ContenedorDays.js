@@ -1,5 +1,7 @@
-import React from 'react';
+import MultiRangeSlider from "@/components/rangeSlider/rangeSlider";
 import { DayCard } from "./DayCard";
+
+
 
 export const ContenedorDays = ({idioma, fechas, hora, amanecer, atardecer, temperatura, viento, direccion, racha, cantidadDias }) => {
     const lang = (idioma === 'es') ? 'es-ES' : 'en-US';
@@ -34,21 +36,38 @@ export const ContenedorDays = ({idioma, fechas, hora, amanecer, atardecer, tempe
     }
 
     return (
-        <div>
-            {dias.map((dia, index) => (
-                <DayCard
-                    key={index}
-                    idioma={idioma}
-                    fecha={dia.fecha}
-                    hora={dia.horarios.hora}
-                    temperatura={dia.horarios.temperatura}
-                    viento={dia.horarios.viento}
-                    racha={dia.horarios.racha}
-                    direccion={dia.horarios.direccion}
-                    amanecer={dia.amanecer}
-                    atardecer={dia.atardecer}
+        <div className="flex flex-col">
+            <div className="m-4">
+            <MultiRangeSlider
+                min={0}
+                max={23}
+                
                 />
-            ))}
+            </div>
+            <div className="m-4">
+            <MultiRangeSlider
+                min={0}
+                max={7}
+                
+                />
+            </div>
+            <div>
+                {dias.map((dia, index) => (
+                    <DayCard
+                        key={index}
+                        idioma={idioma}
+                        fecha={dia.fecha}
+                        hora={dia.horarios.hora}
+                        temperatura={dia.horarios.temperatura}
+                        viento={dia.horarios.viento}
+                        racha={dia.horarios.racha}
+                        direccion={dia.horarios.direccion}
+                        amanecer={dia.amanecer}
+                        atardecer={dia.atardecer}
+                    />
+                ))}
+            </div>
         </div>
+
     );
 }
