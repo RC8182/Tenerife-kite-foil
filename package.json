@@ -16,7 +16,8 @@
     "node-cron": "^3.0.3",
     "react": "^18",
     "react-apexcharts": "^1.4.1",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",

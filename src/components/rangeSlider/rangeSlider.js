@@ -1,10 +1,12 @@
 'use client'
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import "./multiRangeSlider.css";
+import { useRangeTime, useRangeDay} from "@/context/context";
 
-const MultiRangeSlider = ({ min, max }) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
+const MultiRangeSlider = ({min, max, title, context}) => {
+  
+  const { minVal, maxVal, setMinVal, setMaxVal } = (context==='time')? useRangeTime(): useRangeDay();
+
   const minValRef = useRef(null);
   const maxValRef = useRef(null);
   const range = useRef(null);
@@ -17,31 +19,29 @@ const MultiRangeSlider = ({ min, max }) => {
 
   // Set width of the range to decrease from the left side
   useEffect(() => {
-    if (maxValRef.current) {
-      const minPercent = getPercent(minVal);
-      const maxPercent = getPercent(+maxValRef.current.value); // Preceding with '+' converts the value from type string to type number
-
-      if (range.current) {
-        range.current.style.left = `${minPercent}%`;
-        range.current.style.width = `${maxPercent - minPercent}%`;
-      }
+    const minPercent = getPercent(minVal);
+    const maxPercent = getPercent(maxVal); // Utiliza directamente maxVal
+    if (range.current) {
+      range.current.style.left = `${minPercent}%`;
+      range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [minVal, getPercent]);
+  }, [minVal, maxVal, getPercent]); // Añade maxVal a la lista de dependencias
 
-  // Set width of the range to decrease from the right side
+  //Set width of the range to decrease from the right side
   useEffect(() => {
-    if (minValRef.current) {
-      const minPercent = getPercent(+minValRef.current.value);
-      const maxPercent = getPercent(maxVal);
+    const minPercent = getPercent(minVal); // Utiliza directamente minVal
+    const maxPercent = getPercent(maxVal);
 
-      if (range.current) {
-        range.current.style.width = `${maxPercent - minPercent}%`;
-      }
+    if (range.current) {
+      range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [maxVal, getPercent]);
+  }, [minVal, maxVal, getPercent]); // Añade minVal a la lista de dependencias
+
 
   return (
-    <div className="container h-12 flex items-center justify-center">
+    <div className="flex flex-col items-center">
+      <div>{title}</div>
+      <div className="container h-12 flex flex-col items-center justify-center">
       <input
         type="range"
         min={min}
@@ -72,19 +72,21 @@ const MultiRangeSlider = ({ min, max }) => {
       />
 
       <div className="slider relative w-200">
-        <div className="slider__track bg-gray-400 rounded h-5 absolute w-full z-1" />
+        <div className="slider__track" />
         <div
           ref={range}
-          className="slider__range bg-blue-300 rounded h-5 absolute z-2"
+          className="slider__range"
         />
-        <div className="slider__left-value text-gray-400 text-xs absolute mt-20 left-2">
+        <div className="slider__left-value">
           {minVal}
         </div>
-        <div className="slider__right-value text-gray-400 text-xs absolute mt-20 right-2">
+        <div className="slider__right-value">
           {maxVal}
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

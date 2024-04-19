@@ -1,58 +1,34 @@
+'use client'
 import MultiRangeSlider from "@/components/rangeSlider/rangeSlider";
 import { DayCard } from "./DayCard";
+import { useRangeDay } from "@/context/context";
 
+export const ContenedorDays = ({idioma, dias }) => {
 
+    const { minVal, maxVal } = useRangeDay();
 
-export const ContenedorDays = ({idioma, fechas, hora, amanecer, atardecer, temperatura, viento, direccion, racha, cantidadDias }) => {
-    const lang = (idioma === 'es') ? 'es-ES' : 'en-US';
-    const dias = [];
-
-    for (let i = 0; i < cantidadDias; i++) {
-        const inicioIndice = i * 24;
-        const finIndice = inicioIndice + 24;
-
-        const horasFormateadas = hora.slice(inicioIndice, finIndice).map((horaItem) => {
-            // Parsear la hora en caso de que esté en un formato diferente
-            const horaDate = new Date(horaItem);
-            // Formatear la hora y los minutos con dos dígitos
-            const formattedHour = horaDate.getHours().toString().padStart(2, '0');
-            const formattedMinute = horaDate.getMinutes().toString().padStart(2, '0');
-            // Retornar la hora formateada
-            return `${formattedHour}:${formattedMinute}`;
-        });
-
-        dias.push({
-            fecha: new Date(fechas[i]).toLocaleString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}),
-            horarios: {
-                hora: horasFormateadas,
-                temperatura: temperatura.slice(inicioIndice, finIndice),
-                viento: viento.slice(inicioIndice, finIndice),
-                direccion: direccion.slice(inicioIndice, finIndice),
-                racha: racha.slice(inicioIndice, finIndice),
-            },
-            amanecer: amanecer[i],
-            atardecer: atardecer[i],
-        });
-    }
-
+    // Crear un nuevo arreglo con los días filtrados según el rango de posiciones
+    const diasFiltrados = dias.slice(minVal - 1, maxVal);
     return (
         <div className="flex flex-col">
             <div className="m-4">
-            <MultiRangeSlider
-                min={0}
-                max={23}
-                
-                />
+                <MultiRangeSlider
+                    min={1}
+                    max={7}
+                    title={(idioma==='es'? 'Días a mostrar': 'Days to show' )}
+                    />
             </div>
             <div className="m-4">
-            <MultiRangeSlider
-                min={0}
-                max={7}
-                
-                />
+                <MultiRangeSlider
+                    min={0}
+                    max={23}
+                    title={(idioma==='es'? 'Horario a mostrar': 'Time to show' )}
+                    context={'time'}
+                    />
             </div>
+
             <div>
-                {dias.map((dia, index) => (
+                {diasFiltrados.map((dia, index) => (
                     <DayCard
                         key={index}
                         idioma={idioma}

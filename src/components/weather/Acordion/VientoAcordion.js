@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import arrow from '/public/icons/flecha.png'
 import Image from 'next/image';
+import { useRangeTime } from '@/context/context';
 
 export const VientoAcordion = ({ idioma, direccion, hora, viento, racha }) => {
   const title = (idioma === 'es') ? 'Información de Viento' : 'Wind Forecast';
   const [isOpen, setIsOpen] = useState(false);
+  const {minVal, maxVal}= useRangeTime();
+
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -48,35 +51,35 @@ export const VientoAcordion = ({ idioma, direccion, hora, viento, racha }) => {
               </tr>
             </thead>
             <tbody>
-              {hora.map((item, index) => (
-                <tr key={index}>
-                  {/* Formatear la hora en el formato "00:00" */}
-                  <td className='text-center'>{item.padStart(5, '0')}</td>
-                  <td className='text-center'>
-                    <div className="flex flex-col items-center">
-                      <span>{viento[index]}</span>
+            {hora.slice(minVal, maxVal + 1).map((item, index) => (
+              <tr key={index}>
+                {/* Formatear la hora en el formato "00:00" */}
+                <td className='text-center'>{item.padStart(5, '0')}</td>
+                <td className='text-center'>
+                  <div className="flex flex-col items-center">
+                    <span>{viento[index + minVal]}</span>
+                  </div>
+                </td>
+                <td className='text-center'>
+                  <div className="flex flex-col items-center">
+                    <span>{racha[index + minVal]}</span>
+                  </div>
+                </td>
+                <td>
+                  <div className="flex items-center justify-end">
+                    <span>{direccion[index + minVal]}º</span>
+                    <div className="mt-2">
+                      <Image
+                        className="icono-flecha-rosa-viento w-5"
+                        style={{ transform: `rotate(${direccion[index + minVal]}deg)` }}
+                        src={arrow}
+                        alt="Wind Compass"
+                      />
                     </div>
-                  </td>
-                  <td className='text-center'>
-                    <div className="flex flex-col items-center">
-                      <span>{racha[index]}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="flex items-center justify-end">
-                      <span>{direccion[index]}º</span>
-                      <div className="mt-2">
-                        <Image
-                          className="icono-flecha-rosa-viento w-5"
-                          style={{ transform: `rotate(${direccion[index]}deg)` }}
-                          src={arrow}
-                          alt="Wind Compass"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                  </div>
+                </td>
+              </tr>
+            ))}
             </tbody>
           </table>
         </div>

@@ -30,13 +30,13 @@ container {
   }
   
   .slider__range {
-    background-color: #9fe5e1;
+    background-color:rgb(249,115,22);
     z-index: 2;
   }
   
   .slider__left-value,
   .slider__right-value {
-    color: #dee2e6;
+    color: #18191a;
     font-size: 12px;
     margin-top: 20px;
   }
@@ -78,7 +78,7 @@ container {
   
   /* For Chrome browsers */
   .thumb::-webkit-slider-thumb {
-    background-color: #f1f5f7;
+    background-color: rgb(95,153,248);
     border: none;
     border-radius: 50%;
     box-shadow: 0 0 1px 1px #ced4da;
@@ -92,7 +92,7 @@ container {
   
   /* For Firefox browsers */
   .thumb::-moz-range-thumb {
-    background-color: #f1f5f7;
+    background-color: rgb(95,153,248);
     border: none;
     border-radius: 50%;
     box-shadow: 0 0 1px 1px #ced4da;

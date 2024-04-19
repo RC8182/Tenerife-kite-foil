@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Olas } from '../../Modulos Tiempo/Olas'
 import { Sunrise } from '../../ModulosTiempo/sunrise';
 import { Sunset } from '../../ModulosTiempo/sunset';
 import { TemperatureMaxMin } from '../../ModulosTiempo/temperatureMaxMin';
