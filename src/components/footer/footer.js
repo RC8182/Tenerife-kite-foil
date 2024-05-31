@@ -8,7 +8,7 @@ export default function Footer({ idioma }) {
   const datosFooter = idioma === 'es' ? datos.es : datos.en;
 
   return (
-    <div className="bg-blue-500 text-white flex flex-col">
+    <div className="bg-black text-white flex flex-col">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center align-items-center p-4">
         {/* Partner */}
           <div className='flex flex-col '>

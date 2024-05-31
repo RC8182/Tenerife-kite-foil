@@ -4,14 +4,14 @@ import Link from 'next/link'
 
 export default function OfferCard({idioma, title, discount, price, img, alt, link, estado }){
 
-    const title1= (idioma==='es')?'Hasta':'Up To';
+    const title1= (idioma==='es')?'Oferta':'Sale';
     const title2= (idioma==='es')?' de descuento sobre el precio recomendado':'discount from recommended price.';
     const delivery= (idioma==='es')?'Transporte Incluido!':'Delivery Included!';
 
     return (
         <div className="max-w-80 min-w-32  mx-auto bg-white rounded-xl shadow-md overflow-hidden m-5 hover:shadow-2xl">
           <Link href={link} target='blank' >
-            <div id='title' className="p-4 flex justify-center  bg-orange-500">
+            <div id='title' className="p-4 flex justify-center  bg-blue-500">
                 <div className="uppercase tracking-wide text-xl text-white font-semibold">{title}</div>
             </div>
             <div className=" p-2 flex ">
@@ -25,8 +25,8 @@ export default function OfferCard({idioma, title, discount, price, img, alt, lin
                 <div id='discount' className='max-w-40 max-h-40 flex justify-end'>
 
                     <div className='flex border-4 border-blue-500 rounded-xl'>
-                        <div className="m-2 flex flex-col text-orange-500"> 
-                            <div className='text-blue-700'>{title1}</div>
+                        <div className="m-2 flex flex-col text-orange-500 justify-center items-center"> 
+                            <div className='text-blue-700 text-xl'>{title1}</div>
                         <div className='text-6xl font-bold'>{`${discount}%`}</div>
                             <div className='text-xs text-blue-700'>{title2}</div>
                         </div>

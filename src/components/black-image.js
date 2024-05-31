@@ -12,7 +12,7 @@ export const BlackImage = async({ titulo, src, alt, link }) => {
           <Link href={link} passHref target='blank'>
             <div onClick={handleClick(link)} className="flex relative items-center justify-center">              
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_LOCAL_HOST}${src}`}
+                src={src.src}
                 alt={alt}
                 width={1000}
                 height={1000}

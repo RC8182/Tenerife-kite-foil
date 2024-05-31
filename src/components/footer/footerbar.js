@@ -7,7 +7,7 @@ export default async function FootBar({ idioma}) {
   const data = await getDataWind()
   const datos= data.current_weather.windspeed
   return (
-    <div className="fixed bottom-0 w-full h-12 bg-orange-500 border-t-2 border-white rounded-t-lg flex items-center justify-center">
+    <div className="fixed bottom-0 w-full h-12 bg-black border-t-2 border-orange-500 rounded-t-lg flex items-center justify-center">
       <div className="w-3/4 flex justify-star m-2 text-white">
         {`${viento} ${datos} Knts`}
       </div>  

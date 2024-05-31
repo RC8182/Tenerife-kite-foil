@@ -14,6 +14,7 @@ RUN npm install && \
     npm i @formatjs/intl-localematcher &&\
     npm i negotiator &&\
     npm install --save react-apexcharts apexcharts && \
+    npm install zustand && \
     npx tailwindcss init -p && \
     npm run build
 

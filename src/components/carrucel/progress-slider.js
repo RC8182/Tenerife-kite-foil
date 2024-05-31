@@ -2,14 +2,14 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
-export default function ProgressSlider({ obj }) {
+export default function ProgressSlider({ list }) {
   const duration = 5000;
   const itemsRef = useRef(null);
   const frame = useRef(0);
   const firstFrameTime = useRef(performance.now());
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
-  const sliderList=obj?.imagenes.data;
+  const sliderList=list;
 
 
   useEffect(() => {
@@ -48,8 +48,8 @@ export default function ProgressSlider({ obj }) {
                 }`}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_LOCAL_HOST}${e.attributes.url}`}
-                  // alt={alt}
+                  src={e.src}
+                  alt={e.alt}
                   width={1000}
                   height={1000}
                   loading="lazy"

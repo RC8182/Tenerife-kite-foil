@@ -13,6 +13,13 @@ export default {
       {
         hostname: 'admin-tenerife.ddns.net',
       },
+      {
+        hostname: 'www.azulkiteboarding.com',
+      },
+      {
+        hostname: 'azulkiteboarding.com',
+      },
+     
       // Agrega más patrones aquí si es necesario
     ],
   },
