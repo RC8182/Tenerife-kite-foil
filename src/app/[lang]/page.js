@@ -1,4 +1,4 @@
-import { Offers } from '@/components/ofertas/offers';
+import { ProductsContainer } from '@/components/productos/productsContainer';
 import { ContenedorPortada } from '@/components/portada/portada';
 import ScrollingBanner from '@/components/scrollingBanner/scrollingBanner';
 import SeccionKiteshop from '@/components/kiteshop/kiteshop';
@@ -33,7 +33,7 @@ export default async function Home({params}) {
       <meta name="keywords" content={metadata_keywords} />
       <ContenedorPortada idioma={idioma}/>
       <ScrollingBanner title={'New Season  '} texts={bannerTexts} />
-      <Offers idioma={idioma}/>
+      <ProductsContainer idioma={idioma}/>
       <SeccionKiteshop idioma={idioma}/>
     </div>
   );
