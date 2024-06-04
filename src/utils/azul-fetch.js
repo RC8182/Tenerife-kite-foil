@@ -7,12 +7,13 @@ authHeaders.set('Authorization', 'Basic ' + btoa(`${CONSUMER_KEY}:${CONSUMER_SEC
 
 export const fetchProducts = async (categoryIds = []) => {
   const categoryParams = categoryIds.length > 0 ? `&category=${categoryIds.join(',')}` : '';
-  const response = await fetch(`${WORDPRESS_API_URL}/products?per_page=48${categoryParams}`, {
+  const response = await fetch(`${WORDPRESS_API_URL}/products?per_page=100${categoryParams}`, {
     headers: authHeaders,
   });
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
   const data = await response.json();
+  console.log(data)
   return data;
 };

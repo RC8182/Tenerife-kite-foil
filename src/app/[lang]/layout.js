@@ -4,6 +4,7 @@ import Footer from "@/components/footer/footer";
 import FootBar from "@/components/footer/footerbar";
 import GoogleAnalytics from "./googleAnalytics";
 import Navbar from "@/components/navbar/navbar";
+import ScrollToTopButton from "@/components/scrollUp";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +21,7 @@ export default function RootLayout({ children, params }) {
       <body className={inter.className} >
       {/* <DataProvider> */}
       <GoogleAnalytics />
+      <ScrollToTopButton/>
       <Navbar idioma={currentLang} menu={true}/>
         {children}
         <Footer idioma={currentLang}/>

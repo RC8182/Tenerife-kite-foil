@@ -12,12 +12,24 @@ export const ProductsContainer = ({ idioma }) => {
     setProductsList, setLoading, setError
   } = useStore();
 
-  const categoryList = [
-    { id: '584', name: 'Tablas de Kitesurf' },
-    { id: '714', name: 'Ofertas' },
-    { id: '250', name: 'Kitesurf Market' },
-    { id: '285', name: 'WingFoil Market' },
+  const categoryList = (idioma === 'es')?
+
+  [    
+    { id: '61', name: 'Kitesurf Market' },
+    { id: '513', name: 'Cometas' },
+    { id: '519', name: 'Tablas de Kitesurf' },
+    { id: '716', name: 'Ofertas' },
     { id: '65', name: 'Accesorios' },
+    { id: '68', name: 'WingFoil Market' },
+  ]
+  :
+  [
+    { id: '250', name: 'Kitesurf Market' },
+    { id: '555', name: 'Kites' },
+    { id: '584', name: 'Kitesurf Boards' },
+    { id: '714', name: 'Sales' },
+    { id: '265', name: 'Accesories' },
+    { id: '285', name: 'WingFoil Market' },
   ];
 
   useEffect(() => {
@@ -56,6 +68,8 @@ export const ProductsContainer = ({ idioma }) => {
 
   const title = (idioma === 'es') ? 'Productos' : 'Products';
 
+  const filteredProductsList = productsList.filter(product => product.permalink.includes(`/${idioma}/`));
+
   return (
     <div id='contenedor-ofertas' className='p-8'>
       <div className="flex flex-col p-2 items-center justify-center text-center bg-black">
@@ -64,7 +78,7 @@ export const ProductsContainer = ({ idioma }) => {
         </h1>
       </div>
       <hr className="divider border-t-4 border-blue-500" />
-      <div className="flex flex-wrap gap-4 mb-4">
+      <div className="flex flex-wrap gap-4 m-4 text-xl justify-center">
         {categoryList.map((e, i) => (
           <CategoryCheckbox key={i} id={e.id} name={e.name} />
         ))}
@@ -72,7 +86,7 @@ export const ProductsContainer = ({ idioma }) => {
       {isLoading && <div className="text-center">Loading...<Spinner/></div>}
       {error && <div className="text-center text-red-500">{error}</div>}
       <div className='flex gap-4 flex-wrap justify-center'>
-        {productsList && productsList.map((e, i) => {
+        {filteredProductsList && filteredProductsList.map((e, i) => {
           const originalPrice = parseFloat(e.regular_price);
           const salePrice = parseFloat(e.sale_price);
 

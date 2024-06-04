@@ -15,6 +15,7 @@ RUN npm install && \
     npm i negotiator &&\
     npm install --save react-apexcharts apexcharts && \
     npm install zustand && \
+    npm install @heroicons/react@v1 && \
     npx tailwindcss init -p && \
     npm run build
 
