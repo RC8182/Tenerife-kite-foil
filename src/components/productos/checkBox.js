@@ -1,20 +1,26 @@
+// src/components/CheckBox.js
+import React from 'react';
 import { useStore } from '@/context/checkbox';
 
-export const CategoryCheckbox = ({ id, name }) => {
-  const { selectedCategories, toggleCategory } = useStore();
+export const CategoryCheckbox = ({ id, name, selectedCategory, onChange }) => {
+  const { setSelectedCategory } = useStore();
+
+  const handleChange = () => {
+    if (selectedCategory === id) {
+      setSelectedCategory(null);  // Deselect if the same category is selected
+    } else {
+      setSelectedCategory(id);  // Select new category
+    }
+  };
 
   return (
-    <div className="flex items-center">
-      <input
-        type="checkbox"
-        id={`category-${id}`}
-        onChange={() => toggleCategory(id)}
-        checked={selectedCategories.includes(id)}
+    <label>
+      <input 
+        type="checkbox" 
+        checked={selectedCategory === id} 
+        onChange={handleChange}
       />
-      <label htmlFor={`category-${id}`} className="ml-2">
-        {name}
-      </label>
-    </div>
+      {name}
+    </label>
   );
 };
-  

@@ -1,20 +1,11 @@
-
 import {create} from 'zustand';
 
-export const useStore = create((set) => ({
-  selectedCategories: [],
-  productsList: [],
+export const useStore = create(set => ({
+  selectedCategory: null,
   isLoading: false,
   error: null,
-  setSelectedCategories: (selectedCategories) => set({ selectedCategories }),
-  setProductsList: (productsList) => set({ productsList }),
-  setLoading: (isLoading) => set({ isLoading }),
-  setError: (error) => set({ error }),
-  toggleCategory: (categoryId) => set((state) => {
-    const newSelectedCategories = state.selectedCategories.includes(categoryId)
-      ? state.selectedCategories.filter((id) => id !== categoryId)
-      : [...state.selectedCategories, categoryId];
-
-    return { selectedCategories: newSelectedCategories };
-  }),
+  setSelectedCategory: (category) => set({ selectedCategory: category }),
+  setLoading: (loading) => set({ isLoading: loading }),
+  setError: (error) => set({ error: error }),
+  setDefaultCategory: (category) => set({ selectedCategory: category })
 }));
