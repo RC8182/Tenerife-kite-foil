@@ -1,4 +1,3 @@
-// src/components/CheckBox.js
 import React from 'react';
 import { useStore } from '@/context/checkbox';
 
@@ -14,13 +13,15 @@ export const CategoryCheckbox = ({ id, name, selectedCategory, onChange }) => {
   };
 
   return (
-    <label>
+    <label className="flex items-center my-2 cursor-pointer">
       <input 
         type="checkbox" 
         checked={selectedCategory === id} 
         onChange={handleChange}
+        className="peer hidden"
       />
-      {name}
+      <span className={`w-4 h-4 border-2 rounded-full ${selectedCategory === id ? 'bg-orange-500 border-orange-500' : 'border-white'} peer-checked:bg-orange-500`}></span>
+      <span className="ml-2">{name}</span>
     </label>
   );
 };

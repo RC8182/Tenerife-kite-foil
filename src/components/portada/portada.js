@@ -7,7 +7,7 @@ export const ContenedorPortada = async({idioma}) => {
 
   return (
     <div>
-      <section className="flex flex-col md:flex-row">
+      <section className="flex flex-col md:flex-row justify-center">
         {imageList && imageList.map((e,i)=>{
           
           return <div key={i} className="w-full h-1/2 md:w-1/2  md:h-full">

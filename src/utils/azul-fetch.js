@@ -34,3 +34,16 @@ export const fetchProducts = async () => {
   //console.log(products);  // Ahora tienes todos los productos
   return products;
 };
+
+export const firstfetchProducts = async (page = 1, perPage = 50) => {
+  const response = await fetch(`${WORDPRESS_API_URL}/products?per_page=${perPage}&page=${page}`, {
+    headers: authHeaders,
+  });
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  const data = await response.json();
+  return data;
+};

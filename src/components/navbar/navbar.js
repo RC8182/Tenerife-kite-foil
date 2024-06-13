@@ -22,7 +22,7 @@ export default function Navbar ({idioma, menu}) {
     <div className="text-white bg-black" onMouseLeave={()=>{setOpenTab(null)}}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2">
         <Logo/>
-        {(menu===true)?
+        {/* {(menu===true)?
                 <button
                 onClick={toggleMenu}
                 type="button"
@@ -35,7 +35,7 @@ export default function Navbar ({idioma, menu}) {
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
-        : <div/>}
+        : <div/>} */}
 
 
 
@@ -44,7 +44,7 @@ export default function Navbar ({idioma, menu}) {
         </div>
         
       </div>
-      <div className={`w-full md:block md:w-auto ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-dropdown">
+      {/* <div className={`w-full md:block md:w-auto ${isMenuOpen ? 'block' : 'hidden'}`} id="navbar-dropdown">
         <ul className="flex flex-col justify-center font-medium p-4 md:p-0 mt-4 bg-blue-500 md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
           <li>
             <a href="/" className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
@@ -55,7 +55,7 @@ export default function Navbar ({idioma, menu}) {
             </div>
           ))}     
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

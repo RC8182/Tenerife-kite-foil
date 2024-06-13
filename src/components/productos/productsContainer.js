@@ -1,5 +1,5 @@
 'use client'
-import { fetchProducts } from '@/utils/azul-fetch';
+import { fetchProducts, firstfetchProducts } from '@/utils/azul-fetch';
 import { useStore } from '@/context/checkbox';
 import { useState, useEffect } from 'react';
 import Spinner from '../spinner/spinner';
@@ -14,12 +14,25 @@ export const ProductsContainer = ({ idioma }) => {
     const loadProducts = async () => {
       setLoading(true);
       try {
-        const products = await getProducts();
+        const products = await firstfetchProducts();
         setProductsList(products);
         setLoading(false);
       } catch (err) {
         setError(err.message);
         setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, [setLoading, setError]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const products = await fetchProducts();
+        setProductsList(products);
+      } catch (err) {
+        setError(err.message);
       }
     };
 
@@ -68,9 +81,9 @@ export const ProductsContainer = ({ idioma }) => {
           {title}
         </h1>
       </div>
-      <hr className="divider border-t-4 border-blue-500" />
-      <div className="flex flex-wrap gap-4 m-4 text-xl justify-center">
-        {categoryList.map((e, i) => (
+      <div className='text-white'>
+      <ul className="flex flex-col justify-center font-medium p-4 md:p-0 bg-blue-500 md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+          {categoryList.map((e, i) => (
           <CategoryCheckbox 
             key={i} 
             id={e.id} 
@@ -79,6 +92,11 @@ export const ProductsContainer = ({ idioma }) => {
             onChange={() => setSelectedCategory(e.id)}
           />
         ))}
+        </ul>
+      </div>
+
+      <div className="flex flex-wrap gap-4 m-4 text-xl justify-center">
+
       </div>
       {isLoading && <div className="text-center">Loading...<Spinner /></div>}
       {error && <div className="text-center text-red-500">{error}</div>}
@@ -108,8 +126,3 @@ export const ProductsContainer = ({ idioma }) => {
     </div>
   );
 };
-
-async function getProducts() {
-  let products = await fetchProducts();
-  return products;
-}

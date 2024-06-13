@@ -57,12 +57,12 @@ export const VientoAcordion = ({ idioma, direccion, hora, viento, racha }) => {
                 <td className='text-center'>{item.padStart(5, '0')}</td>
                 <td className='text-center'>
                   <div className="flex flex-col items-center">
-                    <span>{viento[index + minVal]}</span>
+                    <span>{viento[index + minVal]+" kt"}</span>
                   </div>
                 </td>
                 <td className='text-center'>
                   <div className="flex flex-col items-center">
-                    <span>{racha[index + minVal]}</span>
+                    <span>{racha[index + minVal]+" kt"}</span>
                   </div>
                 </td>
                 <td>
