@@ -19,7 +19,7 @@ export const VientoAcordion = ({ idioma, direccion, hora, viento, racha }) => {
       <h2 id="accordion-collapse-heading-1">
         <button
           type="button"
-          className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-blue-500 border border-b-2 border-orange-200 rounded-t-xl focus:ring-2 focus:ring-orange-200 dark:focus:ring-gray-800 hover:bg-blue-100 gap-3"
+          className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-black border border-b-2 border-blue-500 rounded-t-xl hover:bg-blue-100 gap-3"
           data-accordion-target="#accordion-collapse-body-1"
           aria-expanded={isOpen}
           aria-controls="accordion-collapse-body-1"
@@ -34,16 +34,16 @@ export const VientoAcordion = ({ idioma, direccion, hora, viento, racha }) => {
               fill="none"
               viewBox="0 0 10 6"
           >
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 5 5 1 1 5"/>
           </svg>
         </button>
       </h2>
-      <div id="accordion-collapse-body-1" className={`border border-b-4 border-orange-300 ${isOpen ? '' : 'hidden'}`} aria-labelledby="accordion-collapse-heading-1">
-        <div className="p-5 border border-b-0 border-gray-20">
+      <div id="accordion-collapse-body-1" className={`border-2 rounded-b-xl border-blue-500 ${isOpen ? '' : 'hidden'}`} aria-labelledby="accordion-collapse-heading-1">
+        <div className="p-5 border-b-0">
           {/* Crear una tabla para mostrar los datos */}
           <table className="w-full">
             <thead>
-              <tr className='text-blue-500'>
+              <tr className='text-orange-500'>
                 <th>Hora</th>
                 <th>Viento</th>
                 <th>Racha</th>

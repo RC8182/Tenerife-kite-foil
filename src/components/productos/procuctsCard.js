@@ -33,12 +33,12 @@ export default function ProductsCard({ idioma, title, discount, price, img, alt,
                     <div className="text-2xl text-orange-500 font-bold flex justify-end">{delivery}</div>
                     <div className="flex flex-col">
                         <div className='flex'>
-                            <div className="text-2xl font-bold flex justify-end">{price}</div>
-                            <div className="text-lg flex justify-end">€*</div>
+                            <div className="text-4xl font-bold flex justify-end">{price}</div>
+                            <div className="text-orange-500 font-bold text-2xl flex justify-end">€</div>
                         </div>
-                        <div>
+                        {/* <div>
                             <div className="text-sm text-blue-500 font-bold flex justify-end"><span className='text-orange-500'>*</span>{estado}</div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Link>
