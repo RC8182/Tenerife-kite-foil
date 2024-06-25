@@ -2,9 +2,10 @@ import React from 'react';
 import { Sunrise } from '../../ModulosTiempo/sunrise';
 import { Sunset } from '../../ModulosTiempo/sunset';
 import { TemperatureMaxMin } from '../../ModulosTiempo/temperatureMaxMin';
-import { VientoAcordion } from '../../Acordion/VientoAcordion';
+import { Acordion } from '../acordion';
+import { Tides } from '../../tides';
 
-export const DayCard = ({idioma, amanecer, atardecer, temperatura, fecha, hora, viento,racha, direccion, range_time}) => {
+export const DayCard = ({idioma, amanecer, atardecer, temperatura, fecha, hora, viento,racha, direccion, range_time, chart}) => {
   const maxTemp = Math.max(...temperatura);
   const minTemp = Math.min(...temperatura);
   
@@ -25,7 +26,10 @@ export const DayCard = ({idioma, amanecer, atardecer, temperatura, fecha, hora, 
           <TemperatureMaxMin idioma={idioma} temp_max={maxTemp} temp_min={minTemp}/>
         </div>
         <div className="flex flex-col mt-2 w-full">
-          <VientoAcordion idioma={idioma} hora={hora} viento={viento} racha={racha} direccion={direccion} range_time={range_time} />
+          <Acordion tipo={'viento'} idioma={idioma} hora={hora} viento={viento} racha={racha} direccion={direccion} range_time={range_time} />
+        </div>
+        <div className="flex flex-col mt-2 w-full">
+          <Acordion tipo={'marea'} idioma={idioma} chart={chart} />
         </div>
 
         <div>{/* <Olas /> */}</div>

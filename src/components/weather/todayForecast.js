@@ -7,9 +7,12 @@ import { Viento } from "./ModulosTiempo/viento";
 import { RosaViento } from "./ModulosTiempo/RosaViento";
 import { Compass } from "./ModulosTiempo/compass";
 import { getDataWind} from "@/utils/functions";
+import { ActualTide } from "./actualTide";
 
 
-export const ActualWind = async ({idioma}) => {
+
+export const TodayForecast
+ = async ({idioma}) => {
   const horaActual = new Date().getHours().toString().padStart(2, '0');
   const data = await getDataWind();
   const estadotiempo = data.current_weather.weathercode;
@@ -90,6 +93,7 @@ export const ActualWind = async ({idioma}) => {
       </div>
 
       <hr className="border border-orange-300" />
+      <ActualTide idioma={idioma}/>
     </div>
   );
 };

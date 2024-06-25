@@ -2,6 +2,7 @@
 import MultiRangeSlider from "@/components/rangeSlider/rangeSlider";
 import { DayCard } from "./DayCard";
 import { useRangeDay } from "@/context/context";
+import { Tides } from "../../tides";
 
 export const ContenedorDays = ({idioma, dias }) => {
 
@@ -40,7 +41,9 @@ export const ContenedorDays = ({idioma, dias }) => {
                         direccion={dia.horarios.direccion}
                         amanecer={dia.amanecer}
                         atardecer={dia.atardecer}
+                        chart={<Tides idioma={idioma} index={index}/>}
                     />
+
                 ))}
             </div>
         </div>

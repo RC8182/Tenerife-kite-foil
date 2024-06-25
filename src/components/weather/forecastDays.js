@@ -1,7 +1,7 @@
 import { getDataWind } from "@/utils/functions";
 import { ContenedorDays } from "./Acordion/Cards/ContenedorDays";
 
-export const ForecastWind = async ({ idioma }) => {
+export const ForecastDays = async ({ idioma }) => {
   const title = idioma === 'es' ? 'Pronóstico' : 'Forecast';
   const data = await getDataWind();
   const fechas = data.daily.time;

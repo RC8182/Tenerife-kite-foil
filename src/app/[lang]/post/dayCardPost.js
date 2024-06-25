@@ -1,4 +1,4 @@
-import { VientoAcordion } from "@/components/weather/Acordion/VientoAcordion";
+import { Acordion } from "@/components/weather/Acordion/acordion";
 import { Sunrise } from "@/components/weather/ModulosTiempo/sunrise";
 import { Sunset } from "@/components/weather/ModulosTiempo/sunset";
 import { TemperatureMaxMin } from "@/components/weather/ModulosTiempo/temperatureMaxMin";
@@ -25,7 +25,7 @@ export const DayCardPost = ({idioma, amanecer, atardecer, temperatura, fecha, ho
           <TemperatureMaxMin idioma={idioma} temp_max={maxTemp} temp_min={minTemp}/>
         </div>
         <div className="flex flex-col mt-2 w-full">
-          <VientoAcordion idioma={idioma} hora={hora} viento={viento} racha={racha} direccion={direccion} range_time={range_time} />
+          <Acordion tipo={'viento'} idioma={idioma} hora={hora} viento={viento} racha={racha} direccion={direccion} range_time={range_time} />
         </div>
 
         <div>{/* <Olas /> */}</div>
