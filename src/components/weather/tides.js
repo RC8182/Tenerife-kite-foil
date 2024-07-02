@@ -163,7 +163,7 @@ export const Tides = ({ idioma, index }) => {
 
   // Obtener la última marea del día anterior y la primera del día siguiente
   const fechaAnterior = new Date(fechaSeleccionada);
-  fechaAnterior.setDate(fechaAnterior.getDate() - 2);
+  fechaAnterior.setDate(fechaAnterior.getDate() - 1);
   const fechaFormatoAnterior = fechaAnterior.toISOString().slice(0, 10);
   const mareasDiaAnterior = mareasProximos7Dias[fechaFormatoAnterior] || [];
 
